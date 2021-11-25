@@ -1,0 +1,79 @@
+[
+    {
+        "make": "Toyota",
+        "model": "Corolla",
+        "kms": "90000",
+        "color": "Green",
+        "year": "1997",
+        "cost_price": "7000",
+        "sell_price": "10000",
+        "location": "Showroom Melbourne",
+        "rego_number": "XQS980"
+    },
+    {
+        "make": "Toyota",
+        "model": "Prius",
+        "kms": "65900",
+        "color": "White",
+        "year": "2004",
+        "cost_price": "8900",
+        "sell_price": "11700",
+        "location": "Showroom Melbourne",
+        "rego_number": "SLS678"
+    },
+    {
+        "make": "RAM",
+        "model": "1500",
+        "kms": "20000",
+        "color": "Red",
+        "year": "2017",
+        "cost_price": "90000",
+        "sell_price": "120000",
+        "location": "Showroom Melbourne",
+        "rego_number": "RAM234"
+    },
+    {
+        "make": "Lexus",
+        "model": "SH-700",
+        "kms": "60960",
+        "color": "Blue",
+        "year": "2013",
+        "cost_price": "25700",
+        "sell_price": "29250",
+        "location": "Showroom Melbourne",
+        "rego_number": "RTM678"
+    },
+    {
+        "make": "BMW",
+        "model": "116",
+        "kms": "7000",
+        "color": "Black",
+        "year": "2021",
+        "cost_price": "45000",
+        "sell_price": "50000",
+        "location": "Warehouse VIC",
+        "rego_number": "AJA231"
+    },
+    {
+        "make": "Audi",
+        "model": "Q7",
+        "kms": "0",
+        "color": "Silver",
+        "year": "2022",
+        "cost_price": "80500",
+        "sell_price": "90000",
+        "location": "Warehouse VIC",
+        "rego_number": "MCV473"
+    },
+    {
+        "make": "Honda",
+        "model": "Civic",
+        "kms": "16000",
+        "color": "Purple",
+        "year": "2019",
+        "cost_price": "25000",
+        "sell_price": "28000",
+        "location": "Warehouse VIC",
+        "rego_number": "THC578"
+    }
+]

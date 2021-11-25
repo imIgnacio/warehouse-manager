@@ -3,7 +3,7 @@ const Vehicle = require('./Vehicle');
 
 Warehouse.hasMany(Vehicle, {
   foreignKey: 'location',
-  onDelete: 'SET NULL'
+  onDelete: 'SET NULL' //To be checked
 });
 
 Vehicle.belongsTo(Warehouse, {
