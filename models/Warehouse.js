@@ -27,6 +27,10 @@ Warehouse.init(
         isNumeric: true,
       },
     },
+    manager: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
   },
   {
     sequelize,
