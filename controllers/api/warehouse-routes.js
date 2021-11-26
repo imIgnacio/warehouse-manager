@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Warehouse } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/currentstock", async (req, res) => {
+router.get("/currentstock", withAuth, async (req, res) => {
   try {
     const warehouseData = await Warehouse.findAll({
       include: [
@@ -25,17 +25,15 @@ router.get("/currentstock", async (req, res) => {
           attributes: ["name"],
         },
       ],
+      user_id: req.session.user_id,
     });
     if (!warehouseData) {
       res.status(404).json({ message: "No data found" });
     }
-    const warehouse = warehouseData.map((user) => user.get({ plain: true }));
-    res.status(200).json("currentstock", {
-      warehouse,
-      logged_in: req.session.logged_in,
-    });
+
+    res.status(200).json(warehouseData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
-router.get();
+module.exports = router;
