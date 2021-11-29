@@ -5,6 +5,9 @@ const withAuth = require("../utils/auth");
 router.get("/currentstock", withAuth, async (req, res) => {
   try {
     const warehouseData = await Warehouse.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
       include: [
         {
           model: Vehicle,
@@ -17,7 +20,7 @@ router.get("/currentstock", withAuth, async (req, res) => {
             "cost_price",
             "sell_price",
             "location",
-            "rego number",
+            "rego number"
           ],
         },
         {
@@ -25,7 +28,6 @@ router.get("/currentstock", withAuth, async (req, res) => {
           attributes: ["name"],
         },
       ],
-      user_id: req.session.user_id,
     });
     if (!warehouseData) {
       res.status(404).json({ message: "No data found" });

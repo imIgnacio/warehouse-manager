@@ -1,11 +1,13 @@
 const router = require("express").Router();
-
 const { Vehicle } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/currentstock", withAuth, async (req, res) => {
   try {
     const vehicleData = await Vehicle.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
       include: [
         {
           model: Warehouse,
@@ -16,7 +18,6 @@ router.get("/currentstock", withAuth, async (req, res) => {
           attributes: ["name"],
         },
       ],
-      user_id: req.session.user_id,
     });
     if (!vehicleData) {
       res.status(404).json({ message: "No data found" });
@@ -40,7 +41,7 @@ router.post("/receive", withAuth, async (req, res) => {
     }
     res.status(200).json(newVehicle);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -59,7 +60,7 @@ router.put("/update/:id", withAuth, async (req, res) => {
     }
     res.status(200).json(updatedVehicle);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
