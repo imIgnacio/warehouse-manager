@@ -1,13 +1,13 @@
-const Warehouse = require('./Warehouse');
-const Vehicle = require('./Vehicle');
+const Warehouse = require("./Warehouse");
+const Vehicle = require("./Vehicle");
 
 Warehouse.hasMany(Vehicle, {
-  foreignKey: 'location',
-  onDelete: 'SET NULL' //To be checked
+  foreignKey: "location",
+  onDelete: "SET NULL", //To be checked
 });
 
 Vehicle.belongsTo(Warehouse, {
-  foreignKey: 'location'
+  foreignKey: "location",
 });
 
 module.exports = { Warehouse, Vehicle };

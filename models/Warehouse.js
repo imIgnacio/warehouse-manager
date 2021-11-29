@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Warehouse extends Model {}
 
@@ -28,16 +28,16 @@ Warehouse.init(
       },
     },
     manager: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    }
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'warehouse',
+    modelName: "warehouse",
   }
 );
 

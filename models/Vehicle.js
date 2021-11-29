@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Vehicle extends Model {}
 
@@ -23,47 +23,47 @@ Vehicle.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-          isInt: true,
+        isInt: true,
       },
     },
     color: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     year: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     cost_price: {
-        type: DataTypes.INTEGER,
-        validate: {
-            isInt: true,
-        },
+      type: DataTypes.INTEGER,
+      validate: {
+        isInt: true,
+      },
     },
     sell_price: {
-        type: DataTypes.INTEGER,
-        validate: {
-            isInt: true,
-        },
+      type: DataTypes.INTEGER,
+      validate: {
+        isInt: true,
+      },
     },
     location: {
-        type: DataTypes.STRING,
-        references: {
-          model: 'warehouse',
-          key: 'name',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: "warehouse",
+        key: "id",
+      },
     },
     rego_number: {
-        type: DataTypes.STRING,
-        unique: true,
-    }
+      type: DataTypes.STRING,
+      unique: true,
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'vehicle',
+    modelName: "vehicle",
   }
 );
 
