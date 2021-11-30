@@ -73,37 +73,47 @@ router.post("/signup", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.post("/login", async (req, res) => {
   try {
-    const UserData = await User.findOne({
+    const {email, password} = req.body
+
+    if(!email || !password) {
+       res.status(400).json({message: "Invalid args"})
+       return
+    }
+
+    const userData = await User.findOne({
       where: {
-        email: req.body.email,
+        email
       },
     });
-    if (!UserData) {
+
+    if (!userData) {
       res.status(400).json({ message: "No user with that email address!" });
       return;
     }
 
-    const validPassword = UserData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(password);
 
     if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
+      res.status(400).json({ message: "No user with that email address!" });
       return;
     }
+
     req.session.save(() => {
       // declare session variables
-      req.session.user_id = dbUserData.id;
-      req.session.name = dbUserData.name;
-
+      req.session.user_id = userData.id;
+      req.session.name = userData.name;
       req.session.loggedIn = true;
 
-      res.json({ user: UserData, message: "You are now logged in!" });
+      res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
+
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const UserData = await User.destroy({
