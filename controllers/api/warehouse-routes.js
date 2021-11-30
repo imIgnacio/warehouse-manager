@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Warehouse } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/currentstock", withAuth, async (req, res) => {
+router.get("/inventory", withAuth, async (req, res) => {
   try {
     const warehouseData = await Warehouse.findAll({
       where: {
