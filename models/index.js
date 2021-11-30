@@ -1,5 +1,6 @@
 const Warehouse = require("./Warehouse");
 const Vehicle = require("./Vehicle");
+const User = require("./User");
 
 Warehouse.hasMany(Vehicle, {
   foreignKey: "location",
@@ -10,4 +11,4 @@ Vehicle.belongsTo(Warehouse, {
   foreignKey: "location",
 });
 
-module.exports = { Warehouse, Vehicle };
+module.exports = { Warehouse, Vehicle, User };
