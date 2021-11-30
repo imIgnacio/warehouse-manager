@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Warehouse, User, Vehicle } = require("../models");
-//const withAuth = require("../utils/auth");
+const withAuth = require("../utils/auth");
 
 router.get("/", (req, res) => {
   try {
@@ -9,9 +9,6 @@ router.get("/", (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
 
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
@@ -44,7 +41,7 @@ router.get("/user/:id", async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get("/homepage", withAuth, async (req, res) => {
+router.get("/login", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {

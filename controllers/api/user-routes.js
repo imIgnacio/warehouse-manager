@@ -57,10 +57,9 @@ router.get("/:id", async (req, res) => {
 router.post("/signup", async (req, res) => {
   try {
     const UserData = await User.create({
-    name: req.body.name,
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-
     });
 
     req.session.save(() => {
