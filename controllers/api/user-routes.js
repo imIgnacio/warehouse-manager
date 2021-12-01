@@ -65,9 +65,10 @@ router.post("/signup", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.name = userData.name;
+      req.session.email = userData.email;
       req.session.logged_in = true;
 
-      res.status(200).json(UserData);
+      res.status(200).json(userData);
     });
   } catch (err) {
     res.status(500).json(err);
@@ -88,7 +89,7 @@ router.post("/login", async (req, res) => {
     const validPassword = userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
+      res.status(400).json({ message: "No user with that email address!" });
       return;
     }
     req.session.save(() => {
