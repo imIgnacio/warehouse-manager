@@ -12,7 +12,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/login");
+      document.location.replace("/homepage");
     } else {
       alert(response.statusText);
     }

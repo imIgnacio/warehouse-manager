@@ -16,13 +16,13 @@ router.get("/homepage", withAuth, (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-})
- 
+});
+
 router.get("/signup", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/homepage");
-    return;
-  }
+  // if (req.session.logged_in) {
+  //   res.redirect("/homepage");
+  //   return;
+  //}
   res.render("signup");
 });
 
@@ -38,7 +38,7 @@ router.get("/user/:id", async (req, res) => {
     });
 
     const currentUser = userData.get({ plain: true });
- 
+
     res.render("homepage", {
       ...currentUser,
       logged_in: req.session.logged_in,
