@@ -19,7 +19,7 @@ router.get("/homepage", withAuth, (req, res) => {
 })
  
 router.get("/signup", (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect("/homepage");
     return;
   }
