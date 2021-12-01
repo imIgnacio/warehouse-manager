@@ -35,7 +35,7 @@ router.post("/receive", withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-    if (!vehicleData) {
+    if (!newVehicle) {
       res.status(404).json({ message: "No Vehicle data found!" });
       return;
     }
@@ -54,7 +54,7 @@ router.put("/update/:id", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-    if (!vehicleData) {
+    if (!updatedVehicle) {
       res.status(404).json({ message: "No Vehicle found" });
       return;
     }

@@ -1,8 +1,8 @@
 const sequelize = require("../config/connection");
 const { Warehouse, Vehicle, User } = require("../models");
 
-const WarehouseData = require("./warehouseData.json");
-const VehicleData = require("./vehicleData.json");
+const warehouseData = require("./warehouseData.json");
+const vehicleData = require("./vehicleData.json");
 const userData = require("./userData.json");
 
 const seedDatabase = async () => {
@@ -14,12 +14,12 @@ const seedDatabase = async () => {
       returning: true,
     });
 
-    const Warehouses = await Warehouse.bulkCreate(WarehouseData);
-    for (const vehicleObject of VehicleData) {
+    const warehouses = await Warehouse.bulkCreate(warehouseData);
+    for (const vehicleObject of vehicleData) {
       await Vehicle.bulkCreate({
         ...vehicleObject,
-        Warehouse_id:
-          Warehouses[Math.floor(Math.random() * Warehouses.length)].id,
+        warehouse_id:
+          warehouses[Math.floor(Math.random() * warehouses.length)].id,
       });
     }
   } catch (err) {
