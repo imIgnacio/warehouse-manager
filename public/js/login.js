@@ -19,9 +19,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const renderSignup = async (event) => {
-  event.preventDefault();
-};
 document
   .getElementById("login-form")
   .addEventListener("click", loginFormHandler);
