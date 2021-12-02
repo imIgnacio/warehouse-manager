@@ -16,6 +16,22 @@ const inventoryFormHandler = async (event) => {
     }
   }
 };
+
+const getInventory = (event) => {
+  event.preventDefault();
+  const vehicle = document.getElementById("rego").value.trim();
+
+  fetch("/api/vehicles/inventory")
+  .then(function(response){
+      return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+  }
+};
+
 document
   .getElementById("inventory-form")
   .addEventListener("click", inventoryFormHandler);
+
+getInventory();

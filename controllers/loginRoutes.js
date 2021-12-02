@@ -46,4 +46,13 @@ router.get("/user/:id", async (req, res) => {
   }
 });
 
+router.get("/inventory", withAuth, (req, res) => {
+  console.log("hitting");
+  try {
+    res.render("inventory",{logged_in: true});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
