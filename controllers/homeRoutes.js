@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, Vehicle, Warehouse } = require("../models");
 const withAuth = require("../utils/auth");
 
+// Render entry point, login page
 router.get("/", (req, res) => {
   try {
     res.render("login");
@@ -10,6 +11,7 @@ router.get("/", (req, res) => {
   }
 });
 
+// Render main page, where we find menu
 router.get("/homepage", withAuth, (req, res) => {
   try {
     res.render("homepage", { logged_in: true });
@@ -18,30 +20,9 @@ router.get("/homepage", withAuth, (req, res) => {
   }
 });
 
+// Render sign up page
 router.get("/signup", (req, res) => {
   res.render("signup");
-});
-
-router.get("/user/:id", async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
-    });
-
-    const currentUser = userData.get({ plain: true });
-
-    res.render("homepage", {
-      ...currentUser,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 // Render inventory endpoint

@@ -19,15 +19,18 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
+// Get info for a specific vehicle
 router.get("/:id", withAuth, async (req, res) => {
   try {
-    const vehicleData = await Vehicle.findAll({
+    const vehicleData = await Vehicle.findByPk({
       where: {
-        user_id: req.session.user_id,
+        vehicle_id: req.params.id,
       },
     });
+
     if (!vehicleData) {
-      res.status(404).json({ message: "No data found" });
+      res.status(404).json({ message: "No vehicle found" });
+      return;
     }
 
     res.status(200).json(vehicleData);
@@ -36,22 +39,20 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
+// Create a new vehicle
 router.post("/receive", withAuth, async (req, res) => {
   try {
     const newVehicle = await Vehicle.create({
       ...req.body,
-      user_id: req.session.user_id,
     });
-    if (!vehicleData) {
-      res.status(404).json({ message: "No Vehicle data found!" });
-      return;
-    }
+
     res.status(200).json(newVehicle);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
+// Update a vehicle
 router.put("/update/:id", withAuth, async (req, res) => {
   try {
     const updatedVehicle = await Vehicle.update({
@@ -71,6 +72,7 @@ router.put("/update/:id", withAuth, async (req, res) => {
   }
 });
 
+// Sell or Destroy a vehicle
 router.delete("/sell/:id", withAuth, async (req, res) => {
   try {
     const vehicleData = await Vehicle.destroy({
@@ -90,35 +92,5 @@ router.delete("/sell/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.get("/inventory", withAuth, async (req, res) => {
-  try {
-    const vehicleData = await Vehicle.findAll({
-      where: {
-        user_id: req.session.user_id,  //CHECK
-      },
-      include: [
-        {
-          model: Warehouse,
-          attributes: [
-            "name",
-            "location"
-          ],
-        },
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
-    });
-    if (!vehicleData) {
-      res.status(404).json({ message: "No data found" });
-    }
-
-    res.status(200).json(vehicleData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
 
 module.exports = router;
