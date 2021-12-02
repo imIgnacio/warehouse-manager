@@ -63,7 +63,7 @@ router.post("/signout", (req, res) => {
       res.status(200).end();
     });
   } else {
-    res.status(500).json({ message: "Something went wrong"});
+    res.status(400).end();
   }
 });
 
