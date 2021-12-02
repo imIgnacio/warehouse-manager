@@ -7,7 +7,7 @@
         "year": "1997",
         "cost_price": "7000",
         "sell_price": "10000",
-        "location": "Showroom Melbourne",
+        "location": "1",
         "rego_number": "XQS980"
     },
     {
@@ -18,7 +18,7 @@
         "year": "2004",
         "cost_price": "8900",
         "sell_price": "11700",
-        "location": "Showroom Melbourne",
+        "location": "1",
         "rego_number": "SLS678"
     },
     {
@@ -29,7 +29,7 @@
         "year": "2017",
         "cost_price": "90000",
         "sell_price": "120000",
-        "location": "Showroom Melbourne",
+        "location": "1",
         "rego_number": "RAM234"
     },
     {
@@ -40,7 +40,7 @@
         "year": "2013",
         "cost_price": "25700",
         "sell_price": "29250",
-        "location": "Showroom Melbourne",
+        "location": "1",
         "rego_number": "RTM678"
     },
     {
@@ -51,7 +51,7 @@
         "year": "2021",
         "cost_price": "45000",
         "sell_price": "50000",
-        "location": "Warehouse VIC",
+        "location": "2",
         "rego_number": "AJA231"
     },
     {
@@ -62,7 +62,7 @@
         "year": "2022",
         "cost_price": "80500",
         "sell_price": "90000",
-        "location": "Warehouse VIC",
+        "location": "2",
         "rego_number": "MCV473"
     },
     {
@@ -73,7 +73,7 @@
         "year": "2019",
         "cost_price": "25000",
         "sell_price": "28000",
-        "location": "Warehouse VIC",
+        "location": "2",
         "rego_number": "THC578"
     }
 ]

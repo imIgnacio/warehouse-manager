@@ -16,6 +16,7 @@ const inventoryFormHandler = async (event) => {
     }
   }
 };
-document
-  .getElementById("inventory-form")
-  .addEventListener("click", inventoryFormHandler);
+
+function getVehicles() {
+  return;
+}
