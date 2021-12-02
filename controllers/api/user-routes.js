@@ -1,18 +1,18 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Warehouse, Vehicle } = require("../../models");
 const withAuth = require("../../utils/auth");
 // this route is not needed as we don't need to get all users/ just the user who has logged in
-router.get("/", async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      attributes: { exclude: ["password"] },
-    });
-    res.status(200).json(userData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       attributes: { exclude: ["password"] },
+//     });
+//     res.status(200).json(userData);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/:id", async (req, res) => {
   try {
@@ -103,6 +103,16 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post("/signout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 

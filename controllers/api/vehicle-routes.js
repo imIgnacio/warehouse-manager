@@ -1,23 +1,13 @@
 const router = require("express").Router();
-const { Vehicle } = require("../models");
-const withAuth = require("../utils/auth");
+const { Vehicle } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.get("/inventory", withAuth, async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const vehicleData = await Vehicle.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      include: [
-        {
-          model: Warehouse,
-          attributes: ["name", "phone", "address", "manager"],
-        },
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
     });
     if (!vehicleData) {
       res.status(404).json({ message: "No data found" });
@@ -83,5 +73,7 @@ router.delete("/sell/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 module.exports = router;
