@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { Warehouse } = require("../models");
-const withAuth = require("../utils/auth");
+const { Warehouse, Vehicle, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 router.get("/inventory", withAuth, async (req, res) => {
   try {
@@ -20,7 +20,7 @@ router.get("/inventory", withAuth, async (req, res) => {
             "cost_price",
             "sell_price",
             "location",
-            "rego number"
+            "rego number",
           ],
         },
         {

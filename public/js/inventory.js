@@ -10,7 +10,7 @@ const inventoryFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/inventory");
+      document.location.reload();
     } else {
       alert(response.statusText);
     }
