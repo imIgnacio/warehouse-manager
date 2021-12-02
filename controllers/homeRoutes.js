@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {  User } = require("../models");
+const {  User, Vehicle, Warehouse } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", (req, res) => {
@@ -46,10 +46,26 @@ router.get("/user/:id", async (req, res) => {
   }
 });
 
-router.get("/inventory", withAuth, (req, res) => {
-  console.log("hitting");
+// Render inventory endpoint
+router.get("/inventory", async (req, res) => {
   try {
-    res.render("inventory",{logged_in: true});
+
+    const vehicleData = await Vehicle.findAll({
+      include: [
+        {
+          model: Warehouse,
+          attributes: ["name"],
+        },
+      ],
+    })
+
+    // Serialize data
+    const vehicles = vehicleData.map((vehicle) => vehicle.get({ plain: true }));
+
+    console.log(vehicles);
+    res.render("inventory",{
+      vehicles,
+      logged_in: true});
   } catch (err) {
     res.status(500).json(err);
   }

@@ -67,14 +67,15 @@
                     </tr>
                 </tfoot>
                 <tbody>
+                    {{#each vehicles as |vehicle|}}
                     <tr>
-                        <th>1</th>
-                        <td>Toyota Corolla</td>
-                        <td>123 ADV</td>
-                        <td>White</td>
-                        <td>1999</td>
-                        <td>68000</td>
-                        <td>Showroom</td>
+                        <th>{{vehicle.id}}</th>
+                        <td>{{vehicle.make}}</td>
+                        <td>{{vehicle.rego_number}}</td>
+                        <td>{{vehicle.color}}</td>
+                        <td>{{vehicle.year}}</td>
+                        <td>{{vehicle.kms}}</td>
+                        <td>{{vehicle.warehouse.name}}</td>
                         <td><span class="icon-text">
                                 <span class="icon">
                                     <i class="fas fa-pen"></i>
@@ -82,59 +83,10 @@
                             </span>
                         </td>
                     </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Ford Ranger</td>
-                        <td>123 ADV</td>
-                        <td>Orange</td>
-                        <td>2012</td>
-                        <td>201000</td>
-                        <td>Showroom</td>
-                        <td><span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-pen"></i>
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>Toyota Prius</td>
-                        <td>123 ADV</td>
-                        <td>Black</td>
-                        <td>2010</td>
-                        <td>150000</td>
-                        <td>Warehouse</td>
-                        <td><span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-pen"></i>
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>4</th>
-                        <td>Toyota Hilux</td>
-                        <td>123 ADV</td>
-                        <td>White</td>
-                        <td>1992</td>
-                        <td>720000</td>
-                        <td>Warehouse</td>
-                        <td><span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-pen"></i>
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-
-
-
+                    {{/each}}                  
+                </tbody>
             </table>
         </div>
-        <section class="hero  is-fullheight-with-navbar ">
-            <div class="hero-body">
-        </section>
     </section>
-    <script src='./js/inventory.js'></script>
+    {{!-- <script src='./js/inventory.js'></script> --}}
 </body>

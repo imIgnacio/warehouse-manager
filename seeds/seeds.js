@@ -15,13 +15,15 @@ const seedDatabase = async () => {
     });
 
     const Warehouses = await Warehouse.bulkCreate(WarehouseData);
-    for (const vehicleObject of VehicleData) {
-      await Vehicle.bulkCreate({
-        ...vehicleObject,
-        Warehouse_id:
-          Warehouses[Math.floor(Math.random() * Warehouses.length)].id,
-      });
-    }
+    // for (const vehicleObject of VehicleData) {
+    //   await Vehicle.bulkCreate({
+    //     ...vehicleObject,
+    //     Warehouse_id:
+    //       Warehouses[Math.floor(Math.random() * Warehouses.length)].id,
+    //   });
+    // }
+    const vehicles = await Vehicle.bulkCreate(VehicleData);
+
   } catch (err) {
     console.log(err);
   }
