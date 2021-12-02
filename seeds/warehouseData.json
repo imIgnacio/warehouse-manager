@@ -1,12 +1,12 @@
 [
     {
-        "name": "Showroom Melbourne",
+        "name": "Showroom",
         "address": "47 Main Rd, Melbourne, VIC 3000",
         "phone": "98555377",
         "manager": "Carlos Garnacho 🏎️"
     },
     {
-        "name": "Warehouse VIC",
+        "name": "Warehouse",
         "address":"69 House Avenue, Preston, VIC 3072",
         "phone": "98764498",
         "manager": "Lalita"
