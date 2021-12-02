@@ -2,6 +2,7 @@ const router = require("express").Router();
 const {  User, Vehicle, Warehouse } = require("../models");
 const withAuth = require("../utils/auth");
 
+// Render entry point, login page
 router.get("/", (req, res) => {
   try {
     res.render("login");
@@ -10,6 +11,7 @@ router.get("/", (req, res) => {
   }
 });
 
+// Render main page, where we find menu
 router.get("/homepage", withAuth, (req, res) => {
   try {
  
@@ -19,6 +21,7 @@ router.get("/homepage", withAuth, (req, res) => {
   }
 });
 
+// Render sign up page
 router.get("/signup", (req, res) => {
  
   res.render("signup");
