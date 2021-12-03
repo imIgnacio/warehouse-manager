@@ -1,92 +1,100 @@
 <body>
-    <nav class="navbar is-primary ">
-        <div class="navbar-brand">
-            <div class="navbar-item">
-                <a class="button is-primary is-rounded ">
-                    <span class="icon ">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                </a>
-            </div>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Sign Out
-                </a>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar is-primary">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a class="button is-primary is-rounded">
+          <span class="icon">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Sign Out
+        </a>
+      </div>
+    </div>
+  </nav>
 
+  <section class="container m-5">
+    <h2 class="title is-3 has-text-centered has-text-weight-bold">Inventory</h2>
 
-    <section class="container m-5 ">
-        <h2 class="title is-3 has-text-centered has-text-weight-bold">Inventory</h2>
+    <div class="field has-addons">
 
-
-        <div class="field has-addons">
-
-            <div class="control">
-                <input class="input pr-6" type="text" placeholder="Find car by registration" id = "rego">
-            </div>
-            <div class="control">
-                <a class="button is-primary" id ="inventory-form">
-                    Search
-                </a>
-            </div>
-        </div>
-        <div class="table-container">
-            <table class="table is-striped is-hoverable">
-                <thead>
-                    <tr>
-                        <th><abbr title="Position">Pos</abbr></th>
-                        <th>Vehicle</th>
-                        <th><abbr title="Registration">Rego</abbr></th>
-                        <th><abbr title="Color">Color</abbr></th>
-                        <th><abbr title="Year">Year</abbr></th>
-                        <th><abbr title="Kilometres">KM</abbr></th>
-                        <th><abbr title="Location">Location</abbr></th>
-                        <th><abbr title="Update">UPD</abbr></th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th><abbr title="Position">Pos</abbr></th>
-                        <th>Vehicle</th>
-                        <th><abbr title="Registration">Rego</abbr></th>
-                        <th><abbr title="Color">Color</abbr></th>
-                        <th><abbr title="Year">Year</abbr></th>
-                        <th><abbr title="Kilometres">KM</abbr></th>
-                        <th><abbr title="Location">Location</abbr></th>
-                        <th><abbr title="Update">UPD</abbr></th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    {{#each vehicles as |vehicle|}}
-                    <tr>
-                        <th>{{vehicle.id}}</th>
-                        <td>{{vehicle.make}}</td>
-                        <td>{{vehicle.rego_number}}</td>
-                        <td>{{vehicle.color}}</td>
-                        <td>{{vehicle.year}}</td>
-                        <td>{{vehicle.kms}}</td>
-                        <td>{{vehicle.warehouse.name}}</td>
-                        <td><span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-pen"></i>
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-                    {{/each}}                  
-                </tbody>
-            </table>
-        </div>
-    </section>
-    {{!-- <script src='./js/inventory.js'></script> --}}
+      <div class="control">
+        <input
+          class="input pr-6"
+          type="text"
+          placeholder="Find car by registration"
+          id="rego"
+        />
+      </div>
+      <div class="control">
+        <a class="button is-primary" id="inventory-form">
+          Search
+        </a>
+      </div>
+    </div>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th><abbr title="Position">Pos</abbr></th>
+            <th>Vehicle</th>
+            <th><abbr title="Registration">Rego</abbr></th>
+            <th><abbr title="Color">Color</abbr></th>
+            <th><abbr title="Year">Year</abbr></th>
+            <th><abbr title="Kilometres">KM</abbr></th>
+            <th><abbr title="Location">Location</abbr></th>
+            <th><abbr title="Update">UPD</abbr></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th><abbr title="Position">Pos</abbr></th>
+            <th>Vehicle</th>
+            <th><abbr title="Registration">Rego</abbr></th>
+            <th><abbr title="Color">Color</abbr></th>
+            <th><abbr title="Year">Year</abbr></th>
+            <th><abbr title="Kilometres">KM</abbr></th>
+            <th><abbr title="Location">Location</abbr></th>
+            <th><abbr title="Update">UPD</abbr></th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {{#each vehicles as |vehicle|}}
+            <tr>
+              <th>{{vehicle.id}}</th>
+              <td>{{vehicle.make}}</td>
+              <td>{{vehicle.rego_number}}</td>
+              <td>{{vehicle.color}}</td>
+              <td>{{vehicle.year}}</td>
+              <td>{{vehicle.kms}}</td>
+              <td>{{vehicle.warehouse.name}}</td>
+              <td><span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-pen"></i>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="./js/inventory.js"></script>
 </body>
