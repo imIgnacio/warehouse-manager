@@ -31,10 +31,10 @@
             <div class="field has-addons">
 
                 <div class="control">
-                    <input class="input pr-6" type="text" placeholder="Find a car by registration">
+                    <input id = "search_id" class="input pr-6" type="text" placeholder="Find a car by registration">
                 </div>
                 <div class="control">
-                    <a class="button is-primary">
+                    <a class="button is-primary" >
                         Search
                     </a>
                 </div>
@@ -53,7 +53,8 @@
             <div class="field">
                 <label class="label is-medium">Selling price</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="e.g. 12500 " id = "sellingprice">
+                    <p class="is-size-5 pb-4 " id = "costprice">- $14500</p>
+                    {{!-- <input class="input" type="text" placeholder="e.g. 12500 " id = "sellingprice"> --}}
                 </div>
             </div>
 
@@ -70,4 +71,6 @@
             <div class="hero-body">
         </section>
         </div>
+        
     </section>
+      <script src="./js/sell.js"></script>

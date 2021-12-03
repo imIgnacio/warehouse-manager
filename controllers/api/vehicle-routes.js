@@ -20,19 +20,17 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // Get info for a specific vehicle
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const vehicleData = await Vehicle.findByPk({
+    const vehicleData = await Vehicle.findOne({
       where: {
         vehicle_id: req.params.id,
       },
     });
-
     if (!vehicleData) {
       res.status(404).json({ message: "No vehicle found" });
       return;
     }
-
     res.status(200).json(vehicleData);
   } catch (err) {
     res.status(500).json(err);
@@ -73,12 +71,11 @@ router.put("/update/:id", withAuth, async (req, res) => {
 });
 
 // Sell or Destroy a vehicle
-router.delete("/sell/:id", withAuth, async (req, res) => {
+router.delete("/sell/:id", async (req, res) => {
   try {
     const vehicleData = await Vehicle.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 
