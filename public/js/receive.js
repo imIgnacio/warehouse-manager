@@ -1,7 +1,6 @@
 const receiveFormHandler = async (event) => {
   event.preventDefault();
   const make = document.getElementById("make").value.trim();
-  console.log(make);
   const model = document.getElementById("model").value.trim();
   const kms = document.getElementById("km").value.trim();
   const color = document.getElementById("color").value.trim();

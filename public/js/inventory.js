@@ -1,21 +1,21 @@
-const inventoryFormHandler = async (event) => {
-  event.preventDefault();
-  const regoId = window.location.toString().split("/")[
-    window.location.toString().split("/").length - 1
-  ];
+const inventoryFormHandler = async () => {
+  // event.preventDefault();
+  const id = document.getElementById("v_id").value.trim();
 
-  if (regoId) {
-    const response = await fetch(`/api/vehicles/${regoId}`, {
+  if (id) {
+    const response = await fetch(`/api/vehicles/${id}`, {
       method: "GET",
-      body: JSON.stringify({ regoId }),
+
       headers: { "Content-Type": "application/json" },
     });
+    const data = await response.json();
+    console.log(data);
+    // if (response.ok) {
 
-    if (response.ok) {
-      document.location.replace("/inventory/");
-    } else {
-      alert(response.statusText);
-    }
+    //   document.location.reload();
+    // } else {
+    //   alert(response.statusText);
+    // }
   }
 };
 
