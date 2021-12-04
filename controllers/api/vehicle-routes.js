@@ -40,12 +40,13 @@ router.get("/:rego_number", async (req, res) => {
       ],
     });
     if (!vehicleData) {
-      res.status(404).json({ message: "No vehicle found with this id" });
+      res
+        .status(404)
+        .json({ message: "No vehicle found with this registration number" });
       return;
     }
     res.status(200).json(vehicleData);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
