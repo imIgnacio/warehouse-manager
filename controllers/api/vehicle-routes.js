@@ -52,7 +52,7 @@ router.get("/:rego_number", async (req, res) => {
 });
 
 // Create a new vehicle
-router.post("/receive", async (req, res) => {
+router.post("/receive", withAuth, async (req, res) => {
   try {
     const vehicleData = await Vehicle.create({
       ...req.body,
