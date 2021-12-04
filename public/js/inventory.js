@@ -21,7 +21,7 @@ document
   .getElementById("inventory-form")
   .addEventListener("click", inventoryFormHandler);
 
-<<<<<<< HEAD
+  
 const logoutElement = document.getElementById("logout");
 
 const finishSession = async () => {
@@ -40,4 +40,3 @@ const finishSession = async () => {
 logoutElement.addEventListener("click", finishSession);
 
 document.getElementById("arrow").addEventListener("click", backArrow);
-
