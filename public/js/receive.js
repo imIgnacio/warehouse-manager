@@ -5,21 +5,15 @@ const receiveFormHandler = async (event) => {
   const kms = document.getElementById("km").value.trim();
   const color = document.getElementById("color").value.trim();
   const year = document.getElementById("year").value.trim();
-  const rego = document.getElementById("rego").value.trim();
-  const location = document.getElementById("location").value.trim();
+  const rego_number = document.getElementById("rego").value.trim();
+  const locationElement = document.getElementById("location").value.trim();
   const cost_price = document.getElementById("costprice").value.trim();
   const sell_price = document.getElementById("sellprice").value.trim();
-  if (
-    make &&
-    model &&
-    kms &&
-    color &&
-    year &&
-    rego &&
-    location &&
-    cost_price &&
-    sell_price
-  ) {
+
+  if(make && model && kms && color && year && rego_number && locationElement && cost_price && sell_price) {
+
+    const location = selectLocation(locationElement);
+
     const response = await fetch(`/api/vehicles/receive`, {
       method: "POST",
       body: JSON.stringify({
@@ -28,7 +22,7 @@ const receiveFormHandler = async (event) => {
         kms,
         color,
         year,
-        rego,
+        rego_number,
         location,
         cost_price,
         sell_price,
@@ -43,6 +37,15 @@ const receiveFormHandler = async (event) => {
     }
   }
 };
+
+// Function to get location_id based on shat user chooses
+function selectLocation(location) {
+  if(location === "Showroom"){
+    return 1;
+  }else{
+    return 2;
+  }
+}
 
 document
   .getElementById("receive")
