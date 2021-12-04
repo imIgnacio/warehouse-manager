@@ -1,5 +1,4 @@
 const inventoryFormHandler = async () => {
-  // event.preventDefault();
   const id = document.getElementById("v_id").value.trim();
 
   if (id) {
@@ -10,12 +9,6 @@ const inventoryFormHandler = async () => {
     });
     const data = await response.json();
     console.log(data);
-    // if (response.ok) {
-
-    //   document.location.reload();
-    // } else {
-    //   alert(response.statusText);
-    // }
   }
 };
 
