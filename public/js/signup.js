@@ -1,4 +1,4 @@
-const signupFormHandler = async (event) => {
+const signupFormHandler = async event => {
   event.preventDefault();
   const name = document.getElementById("fullname").value.trim();
   const email = document.getElementById("email-signup").value.trim();
@@ -18,6 +18,7 @@ const signupFormHandler = async (event) => {
     }
   }
 };
+
 document
   .getElementById("signup-form")
   .addEventListener("click", signupFormHandler);

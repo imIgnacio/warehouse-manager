@@ -12,6 +12,13 @@ const inventoryFormHandler = async () => {
   }
 };
 
+const backArrow = () => {
+  console.log("arrow function");
+  document.location.replace("/homepage");
+};
+
 document
   .getElementById("inventory-form")
   .addEventListener("click", inventoryFormHandler);
+
+document.getElementById("arrow").addEventListener("click", backArrow);
