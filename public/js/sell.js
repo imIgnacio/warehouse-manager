@@ -1,4 +1,4 @@
-const sellFormHandler = async (event) => {
+const sellFormHandler = async event => {
   event.preventDefault();
   const id = document.getElementById("search_id").value.trim();
   console.log(id);
@@ -18,4 +18,12 @@ const sellFormHandler = async (event) => {
     }
   }
 };
+
+const backArrow = () => {
+  console.log("arrow function");
+  document.location.replace("/homepage");
+};
+
+document.getElementById("arrow").addEventListener("click", backArrow);
+
 document.getElementById("sellform").addEventListener("click", sellFormHandler);
