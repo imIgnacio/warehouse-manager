@@ -1,4 +1,4 @@
-const receiveFormHandler = async (event) => {
+const receiveFormHandler = async event => {
   event.preventDefault();
   const make = document.getElementById("make").value.trim();
   const model = document.getElementById("model").value.trim();
@@ -10,8 +10,17 @@ const receiveFormHandler = async (event) => {
   const cost_price = document.getElementById("costprice").value.trim();
   const sell_price = document.getElementById("sellprice").value.trim();
 
-  if(make && model && kms && color && year && rego_number && locationElement && cost_price && sell_price) {
-
+  if (
+    make &&
+    model &&
+    kms &&
+    color &&
+    year &&
+    rego_number &&
+    locationElement &&
+    cost_price &&
+    sell_price
+  ) {
     const location = selectLocation(locationElement);
 
     const response = await fetch(`/api/vehicles/receive`, {
@@ -40,13 +49,37 @@ const receiveFormHandler = async (event) => {
 
 // Function to get location_id based on shat user chooses
 function selectLocation(location) {
-  if(location === "Showroom"){
+  if (location === "Showroom") {
     return 1;
-  }else{
+  } else {
     return 2;
   }
 }
 
+const backArrow = () => {
+  console.log("arrow function");
+  document.location.replace("/homepage");
+};
+
+document.getElementById("arrow").addEventListener("click", backArrow);
+
 document
   .getElementById("receive")
   .addEventListener("click", receiveFormHandler);
+
+const logoutElement = document.getElementById("logout");
+
+const finishSession = async () => {
+    const response = await fetch('/api/user/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        document.location.replace('/');
+      } else {
+        alert(response.statusText);
+      }
+}
+
+logoutElement.addEventListener("click", finishSession);
