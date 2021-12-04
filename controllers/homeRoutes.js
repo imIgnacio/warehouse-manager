@@ -50,7 +50,7 @@ router.get("/inventory", async (req, res) => {
   }
 });
 
-router.get("/receive", async (req, res) => {
+router.get("/receive", withAuth, async (req, res) => {
   try {
     res.render("receive", {
       logged_in: true,
