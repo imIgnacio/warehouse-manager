@@ -1,76 +1,85 @@
-  <nav class="navbar is-primary ">
-        <div class="navbar-brand">
-            <div class="navbar-item">
-                <a class="button is-primary is-rounded ">
-                    <span class="icon ">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                </a>
-            </div>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+<nav class="navbar is-primary">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <a class="button is-primary is-rounded">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+      </a>
+    </div>
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end pr-3">
+      <a class="navbar-item">
+        Sign Out
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="columns is-centered p-4 is-mobile">
+  <div class="column is-11-mobile is-9-tablet is-6-desktop">
+
+    <h2 class="title is-3 has-text-centered has-text-weight-bold pt-5">Sell Item
+    </h2>
+    <form>
+
+      <div class="field has-addons pt-3">
+
+        <div class="control">
+          <input
+            class="input pr-6 pl-6"
+            type="text"
+            placeholder="Find a car by registration"
+            id="search_id"
+          />
         </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Sign Out
-                </a>
-            </div>
+        <div class="control">
+          <a class="button is-primary">
+            Search
+          </a>
         </div>
-    </nav>
+      </div>
 
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold pt-5">Vehicle information</p>
+        <p class="is-size-5 pb-4" id="vehicle-model">- Toyota Corolla - 123 ODX</p>
+      </div>
 
-    <section class="container m-5 ">
-        <h2 class="title is-3 has-text-centered has-text-weight-bold">Sell Item </h2>
-        <form>
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Cost price</p>
+        <p class="is-size-5 pb-4" id="costprice">- $14500</p>
+      </div>
 
-            <div class="field has-addons">
-
-                <div class="control">
-                    <input id = "search_id" class="input pr-6" type="text" placeholder="Find a car by registration">
-                </div>
-                <div class="control">
-                    <a class="button is-primary" >
-                        Search
-                    </a>
-                </div>
-            </div>
-
-            <div class="field">
-                <p class="is-size-5 has-text-weight-bold pt-5 ">Vehicle information</p>
-                <p class="is-size-5 pb-4" id = "vehicle-model">- Toyota Corolla - 123 ODX</p>
-            </div>
-
-            <div class="field">
-                <p class="is-size-5 has-text-weight-bold ">Cost price</p>
-                <p class="is-size-5 pb-4 " id = "costprice">- $14500</p>
-            </div>
-
-            <div class="field">
-                <label class="label is-medium">Selling price</label>
-                <div class="control">
-                    <p class="is-size-5 pb-4 " id = "costprice">- $14500</p>
-                    {{!-- <input class="input" type="text" placeholder="e.g. 12500 " id = "sellingprice"> --}}
-                </div>
-            </div>
-
-
-
-            <div class="field  is-grouped is-grouped-centered pt-4">
-                <div class="control">
-                    <button class="button is-rounded has-text-weight-bold is-primary" id = "sellform">Sell</button>
-                </div>
-            </div>
-        </form>
-
-        <section class="hero  is-fullheight-with-navbar ">
-            <div class="hero-body">
-        </section>
+      <div class="field">
+        <label class="label is-medium">Selling price</label>
+        <div class="control">
+          <p class="is-size-5 pb-4" id="costprice">- $14500</p>
+          {{! <input class="input" type="text" placeholder="e.g. 12500 " id="sellingprice"> }}
         </div>
-        
-    </section>
-      <script src="./js/sell.js"></script>
+      </div>
+
+      <div class="field is-grouped is-grouped-centered pt-4">
+        <div class="control">
+          <button
+            class="button is-rounded has-text-weight-bold is-primary"
+            id="sellform"
+          >Sell</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+<script src="./js/sell.js"></script>

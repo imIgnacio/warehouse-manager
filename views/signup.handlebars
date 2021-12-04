@@ -1,16 +1,32 @@
-<form>
-    <div class="hero is-fullheight has-background-primary pt-6">
-      <div class="container mt-3 mx-5">
-        <h1 class="title is-3 has-text-centered pt-4 has-text-weight-bold">Sign Up</h1>
-        <div class="field pt-5">
+<div class="hero is-fullheight has-background-primary pt-6">
+
+  <div class="columns is-centered p-4 is-mobile">
+    <div class="column is-11-mobile is-8-tablet is-6-desktop">
+
+      <h1
+        class="title is-3 has-text-centered has-text-weight-bold pt-5 pb-5"
+      >Sign Up</h1>
+
+      <form>
+        <div class="field">
           <label class="label is-medium">Full Name</label>
-          <input class="input is-medium" type="Full Name" placeholder="Full Name" id = "fullname">
+          <input
+            class="input is-medium"
+            type="Full Name"
+            placeholder="Full Name"
+            id="fullname"
+          />
         </div>
 
         <div class="field">
           <label class="label is-medium">Email</label>
           <div class="control has-icons-left">
-            <input class="input is-medium" type="email" placeholder="Email" id = "email-signup">
+            <input
+              class="input is-medium"
+              type="email"
+              placeholder="Email"
+              id="email-signup"
+            />
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -20,28 +36,29 @@
         <div class="field">
           <label class="label is-medium">Password</label>
           <div class="control has-icons-left">
-            <input class="input is-medium" type="password" placeholder="Password" id = "password-signup">
+            <input
+              class="input is-medium"
+              type="password"
+              placeholder="Password"
+              id="password-signup"
+            />
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
           </div>
         </div>
 
-        {{!-- <div class="field">
-          <label class="label is-medium"> Confirm Password</label>
-          <div class="control has-icons-left">
-            <input class="input is-medium" type="password" placeholder="Confirm password">
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-          </div>
-        </div> --}}
-
-        <div class="field  is-grouped is-grouped-centered pt-5">
+        <div class="field is-grouped is-grouped-centered pt-5">
           <div class="control">
-            <button class="button is-rounded has-text-weight-bold" id ="signup-form">SignUp</button>
+            <button
+              class="button is-rounded has-text-weight-bold"
+              id="signup-form"
+            >SignUp</button>
           </div>
         </div>
-      </div>
-  </form>
-  <script src='./js/signup.js'></script>
+
+      </form>
+    </div>
+  </div>
+</div>
+<script src="./js/signup.js"></script>
