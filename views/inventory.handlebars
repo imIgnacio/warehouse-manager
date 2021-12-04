@@ -1,42 +1,45 @@
-<body>
-  <nav class="navbar is-primary">
-    <div class="navbar-brand">
-      <div class="navbar-item">
-        <a class="button is-primary is-rounded">
-          <span class="icon">
-            <i class="fas fa-chevron-left"></i>
-          </span>
-        </a>
-      </div>
-      <a
-        role="button"
-        class="navbar-burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
-      >
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
+<nav class="navbar is-primary">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <a class="button is-primary is-rounded">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
       </a>
     </div>
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item">
-          Sign Out
-        </a>
-      </div>
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end pr-3">
+      <a class="navbar-item">
+        Sign Out
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <section class="container m-5">
-    <h2 class="title is-3 has-text-centered has-text-weight-bold">Inventory</h2>
+<div class="columns is-centered p-4 is-mobile">
+  <div class="column is-11-mobile is-10-tablet is-6-desktop">
 
-    <div class="field has-addons">
+    <h2
+      class="title is-3 has-text-centered has-text-weight-bold pt-5 pb-4"
+    >Inventory</h2>
+
+    <div class="field has-addons mb-3">
 
       <div class="control">
         <input
-          class="input pr-6"
+          class="input pr-6 pl-6"
           type="text"
           placeholder="Find car by registration"
           id="v_id"
@@ -48,6 +51,7 @@
         </a>
       </div>
     </div>
+
     <div class="table-container">
       <table class="table is-striped is-hoverable">
         <thead>
@@ -95,6 +99,6 @@
         </tbody>
       </table>
     </div>
-  </section>
-  <script src="./js/inventory.js"></script>
-</body>
+  </div>
+</div>
+<script src="./js/inventory.js"></script>
