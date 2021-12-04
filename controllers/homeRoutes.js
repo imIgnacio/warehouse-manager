@@ -26,7 +26,7 @@ router.get("/signup", (req, res) => {
 });
 
 // Render inventory endpoint
-router.get("/inventory", async (req, res) => {
+router.get("/inventory", withAuth, async (req, res) => {
   try {
     const vehicleData = await Vehicle.findAll({
       include: [
@@ -50,6 +50,7 @@ router.get("/inventory", async (req, res) => {
   }
 });
 
+// Route to go to page where user can add a vehicle
 router.get("/receive", withAuth, async (req, res) => {
   try {
     res.render("receive", {
