@@ -46,18 +46,22 @@
           />
         </div>
         <div class="control">
-          <a class="button is-primary" id="search-btn">
-            Search
+          <a
+            class="button is-primary"
+            href="/sell/{{vehicle.rego_number}}"
+          >Search
           </a>
         </div>
       </div>
 
       <div class="field">
         <p class="is-size-5 has-text-weight-bold pt-5">Vehicle information</p>
-        {{#if vehicle.length}}
-          <p class="is-size-5 pb-4" id="vehicle-model">{{make}}{{vehicle.model}}
-          </p>
-        {{/if}}
+        <p
+          class="is-size-5 pb-4"
+          id="vehicle-model"
+        >{{vehicle.make}}{{vehicle.model}}
+        </p>
+
       </div>
 
       <div class="field">

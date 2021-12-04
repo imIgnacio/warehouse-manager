@@ -1,11 +1,15 @@
-const getVehicleInfo = async () => {
-  const rego_number = document.getElementById("search_id").value.trim();
-  if (rego_number) {
-    const response = await fetch(`/api/vehicles/${rego_number}`, {
-      method: "GET",
-    });
-  }
-};
+// const getVehicleInfo = async () => {
+//   const id = document.getElementById("search_id").value.trim();
+//   console.log(id);
+//   if (id) {
+//     const response = await fetch(`/sell/${id}`, {
+//       method: "GET",
+//       headers: { "Content-Type": "application/json" },
+//     });
+//     const data = await response.json();
+//     console.log(data);
+//   }
+// };
 
 const sellFormHandler = async (event) => {
   event.preventDefault();
@@ -42,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach(el => {
+    $navbarBurgers.forEach((el) => {
       el.addEventListener("click", () => {
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;
@@ -58,3 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("arrow").addEventListener("click", backArrow);
 document.getElementById("sellform").addEventListener("click", sellFormHandler);
+// document.getElementById("search-btn").addEventListener("click", getVehicleInfo);
