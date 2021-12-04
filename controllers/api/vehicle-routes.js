@@ -20,19 +20,32 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // Get info for a specific vehicle
-router.get("/:id", async (req, res) => {
+
+router.get("/:rego_number", async (req, res) => {
   try {
     const vehicleData = await Vehicle.findOne({
       where: {
-        vehicle_id: req.params.id,
+        rego_number: req.params.rego_number,
       },
+      attributes: [
+        "model",
+        "make",
+        "kms",
+        "color",
+        "year",
+        "cost_price",
+        "sell_price",
+        "location",
+        "rego_number",
+      ],
     });
     if (!vehicleData) {
-      res.status(404).json({ message: "No vehicle found" });
+      res.status(404).json({ message: "No vehicle found with this id" });
       return;
     }
     res.status(200).json(vehicleData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
