@@ -1,14 +1,26 @@
-const sellFormHandler = async event => {
+// const getVehicleInfo = async () => {
+//   const id = document.getElementById("search_id").value.trim();
+//   console.log(id);
+//   if (id) {
+//     const response = await fetch(`/sell/${id}`, {
+//       method: "GET",
+//       headers: { "Content-Type": "application/json" },
+//     });
+//     const data = await response.json();
+//     console.log(data);
+//   }
+// };
+
+const sellFormHandler = async (event) => {
   event.preventDefault();
-  const id = document.getElementById("search_id").value.trim();
-  console.log(id);
-  // const model = document.getElementById("#vehicle-model").value.trim();
-  // const cost_price = document.getElementById("#costprice").value.trim();
-  // const sell_price = document.getElementById("#sellingprice").value.trim();
-  if (id) {
-    const response = await fetch(`/api/vehicles/sell/${id}`, {
+  const rego_number = document.getElementById("search_id").value.trim();
+  const model = document.getElementById("#vehicle-model").value.trim();
+  const cost_price = document.getElementById("#costprice").value.trim();
+  const sell_price = document.getElementById("#sellingprice").value.trim();
+  if (rego_number && model && cost_price && sell_price) {
+    const response = await fetch(`/api/vehicles/sell/${rego_number}`, {
       method: "DELETE",
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ rego_number, model, cost_price, sell_price }),
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
@@ -34,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach(el => {
+    $navbarBurgers.forEach((el) => {
       el.addEventListener("click", () => {
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;
@@ -49,5 +61,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("arrow").addEventListener("click", backArrow);
-
 document.getElementById("sellform").addEventListener("click", sellFormHandler);
+// document.getElementById("search-btn").addEventListener("click", getVehicleInfo);
