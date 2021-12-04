@@ -46,7 +46,7 @@
           />
         </div>
         <div class="control">
-          <a class="button is-primary">
+          <a class="button is-primary" id="search-btn">
             Search
           </a>
         </div>
@@ -54,19 +54,27 @@
 
       <div class="field">
         <p class="is-size-5 has-text-weight-bold pt-5">Vehicle information</p>
-        <p class="is-size-5 pb-4" id="vehicle-model">- Toyota Corolla - 123 ODX</p>
+        {{#if vehicle.length}}
+          <p class="is-size-5 pb-4" id="vehicle-model">{{make}}{{vehicle.model}}
+          </p>
+        {{/if}}
       </div>
 
       <div class="field">
         <p class="is-size-5 has-text-weight-bold">Cost price</p>
-        <p class="is-size-5 pb-4" id="costprice">- $14500</p>
+        <p class="is-size-5 pb-4" id="costprice">{{vehicle.cost_price}}</p>
       </div>
 
       <div class="field">
         <label class="label is-medium">Selling price</label>
         <div class="control">
-          <p class="is-size-5 pb-4" id="costprice">- $14500</p>
-          {{! <input class="input" type="text" placeholder="e.g. 12500 " id="sellingprice"> }}
+
+          <input
+            class="input"
+            type="text"
+            placeholder="e.g. 12500 "
+            id="sellingprice"
+          />
         </div>
       </div>
 
