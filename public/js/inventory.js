@@ -31,6 +31,8 @@ searchButton.addEventListener('click', async () => {
     const tdYear = document.createElement("td");
     const tdKms = document.createElement("td");
     const tdLocation = document.createElement("td");
+    const tdCostPrice = document.createElement("td");
+    const tdSellPrice = document.createElement("td");
 
     //Feed Td's with vehicle info
     thID.innerHTML = vehicle.id;
@@ -39,6 +41,8 @@ searchButton.addEventListener('click', async () => {
     tdColor.innerHTML = vehicle.color;
     tdYear.innerHTML = vehicle.year;
     tdKms.innerHTML = vehicle.kms;
+    tdCostPrice.innerHTML = vehicle.cost_price;
+    tdSellPrice.innerHTML = vehicle.sell_price;
     
     //Get id of the location
     if(vehicle.location == 1){
@@ -55,6 +59,8 @@ searchButton.addEventListener('click', async () => {
     trChild.appendChild(tdYear);
     trChild.appendChild(tdKms);
     trChild.appendChild(tdLocation);
+    trChild.appendChild(tdCostPrice);
+    trChild.appendChild(tdSellPrice);
 
     tBody.appendChild(trChild);
   });
