@@ -2,6 +2,7 @@ const searchBar = document.getElementById("searchbtn");
 const vehicleInfo = document.getElementById("vehicle-Info");
 let vehicle = [];
 
+// Search for vehicle user wants to update
 const getVehicleInfo = async () => {
   const id = document.getElementById("search_id").value.trim();
 
@@ -12,43 +13,41 @@ const getVehicleInfo = async () => {
       headers: { "Content-Type": "application/json" },
     });
     vehicle = await response.json();
-    console.log(vehicle);
     displayVehicles(vehicle);
   }
 };
-searchBar.addEventListener("click", getVehicleInfo);
 
 const displayVehicles = () => {
   const htmlString = `
    <p
       class="is-size-5 pb-4"
       id="vehicle-make"
-     >${vehicle.make}
+     >Make: ${vehicle.make}
     </p>
     <p
     class="is-size-5 pb-4"
     id="vehicle-model"
-  >${vehicle.model}
+  >Model: ${vehicle.model}
   </p>
   <p
   class="is-size-5 pb-4"
   id="vehicle-model"
->${vehicle.color}
+>Color: ${vehicle.color}
 </p>
   <p
   class="is-size-5 pb-4"
   id="vehicle-model"
->${vehicle.kms}
+>Kms: ${vehicle.kms}
 </p>
 <p
 class="is-size-5 pb-4"
 id="vehicle-model"
->${vehicle.year}
+>Year: ${vehicle.year}
 </p>
 <p
 class="is-size-5 pb-4"
 id="vehicle-model"
->${vehicle.rego_number}
+>Rego: ${vehicle.rego_number}
 </p>
     `;
 
@@ -59,9 +58,17 @@ const updateFormHandler = async (event) => {
   event.preventDefault();
   const cost_price = document.getElementById("cost-price").value.trim();
   const sell_price = document.getElementById("selling-price").value.trim();
-  const location = document.getElementById("location").value.trim();
+  let location = document.getElementById("location").value.trim();
   const rego_number = document.getElementById("search_id").value.trim();
 
+  //Change location name for id
+  if(location === "Showroom"){
+    location = 1;
+  }else {
+    location = 2;
+  }
+
+  //Make sure we have all attributes to update
   if (rego_number && sell_price && location && cost_price) {
     const response = await fetch(`/api/vehicles/update/${rego_number}`, {
       method: "PUT",
@@ -79,10 +86,14 @@ const updateFormHandler = async (event) => {
     }
   }
 };
+
+//Arrow to go back
 const backArrow = () => {
   console.log("arrow function");
   document.location.replace("/homepage");
 };
+
+//Log out button
 const logoutElement = document.getElementById("logout");
 
 const finishSession = async () => {
@@ -98,6 +109,7 @@ const finishSession = async () => {
   }
 };
 
+//Menu for mobile version
 document.addEventListener("DOMContentLoaded", () => {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(
@@ -122,9 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+//Event listeners
 document.getElementById("arrow").addEventListener("click", backArrow);
 document
   .getElementById("updateform")
   .addEventListener("click", updateFormHandler);
 
-  logoutElement.addEventListener("click", finishSession);
+logoutElement.addEventListener("click", finishSession);
+
+// Event listener to get vehicle information
+searchBar.addEventListener("click", getVehicleInfo);

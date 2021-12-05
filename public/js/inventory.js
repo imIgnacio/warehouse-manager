@@ -9,6 +9,7 @@ searchButton.addEventListener('click', async () => {
 
   if(!searchRego){
     document.location.replace("/inventory");
+    return;
   }
 
   // Clear all rows to have room for the one to be found
@@ -18,8 +19,11 @@ searchButton.addEventListener('click', async () => {
 
   const vehiclefound = await getVehicleByRego(searchRego);
   const data = vehiclefound.json();
-  data.then((vehicle) => {
 
+  data
+  .then((vehicle) => {
+
+    //Create html elements
     const thID = document.createElement("th");
     const tdMake = document.createElement("td");
     const tdRego = document.createElement("td");
@@ -27,14 +31,8 @@ searchButton.addEventListener('click', async () => {
     const tdYear = document.createElement("td");
     const tdKms = document.createElement("td");
     const tdLocation = document.createElement("td");
-
-    // let span1 = document.createElement("span").classList.add("icon-text");
-    // let span2 = document.createElement("span").classList.add('icon');
-    // let i1 = document.createElement("i").classList.add("fas", "fa-pen");
-
-    // //Appending Children
-    // span2.appendChild(i1);
-    // span1.appendChild(span2);
+    const tdCostPrice = document.createElement("td");
+    const tdSellPrice = document.createElement("td");
 
     //Feed Td's with vehicle info
     thID.innerHTML = vehicle.id;
@@ -43,7 +41,10 @@ searchButton.addEventListener('click', async () => {
     tdColor.innerHTML = vehicle.color;
     tdYear.innerHTML = vehicle.year;
     tdKms.innerHTML = vehicle.kms;
+    tdCostPrice.innerHTML = vehicle.cost_price;
+    tdSellPrice.innerHTML = vehicle.sell_price;
     
+    //Get id of the location
     if(vehicle.location == 1){
       tdLocation.innerHTML = "Showroom";
     }else{
@@ -58,6 +59,8 @@ searchButton.addEventListener('click', async () => {
     trChild.appendChild(tdYear);
     trChild.appendChild(tdKms);
     trChild.appendChild(tdLocation);
+    trChild.appendChild(tdCostPrice);
+    trChild.appendChild(tdSellPrice);
 
     tBody.appendChild(trChild);
   });
@@ -72,10 +75,12 @@ async function getVehicleByRego(rego) {
   return response;
 }
 
+//Back arrow
 const backArrow = () => {
   document.location.replace("/homepage");
 };
 
+//Log out button
 const logoutElement = document.getElementById("logout");
 
 const finishSession = async () => {
@@ -91,6 +96,7 @@ const finishSession = async () => {
   }
 };
 
+//Drop down menu on mobile version
 document.addEventListener("DOMContentLoaded", () => {
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(
@@ -115,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+//Listeners
 logoutElement.addEventListener("click", finishSession);
 
 document.getElementById("arrow").addEventListener("click", backArrow);
