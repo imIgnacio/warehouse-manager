@@ -56,11 +56,13 @@ function selectLocation(location) {
   }
 }
 
+//Back arrow
 const backArrow = () => {
   console.log("arrow function");
   document.location.replace("/homepage");
 };
 
+//Log out button to end session
 const logoutElement = document.getElementById("logout");
 
 const finishSession = async () => {
@@ -100,6 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+//Listeners
 document.getElementById("arrow").addEventListener("click", backArrow);
 
 document
