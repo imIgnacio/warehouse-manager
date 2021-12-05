@@ -87,9 +87,9 @@ const displayVehicles = () => {
   vehicleInfo.innerHTML = htmlString;
 };
 
-const updateFormHandler = async event => {
+const updateFormHandler = async (event) => {
   event.preventDefault();
-  const cost_price = document.getElementById("cost-price").value.trim();
+
   const sell_price = document.getElementById("selling-price").value.trim();
   let location = document.getElementById("location").value.trim();
   const rego_number = document.getElementById("search_id").value.trim();
@@ -102,12 +102,12 @@ const updateFormHandler = async event => {
   }
 
   //Make sure we have all attributes to update
-  if (rego_number && sell_price && location && cost_price) {
+  if (rego_number && sell_price && location) {
     const response = await fetch(`/api/vehicles/update/${rego_number}`, {
       method: "PUT",
       body: JSON.stringify({
         sell_price,
-        cost_price,
+
         location,
       }),
       headers: { "Content-Type": "application/json" },
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach(el => {
+    $navbarBurgers.forEach((el) => {
       el.addEventListener("click", () => {
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;
