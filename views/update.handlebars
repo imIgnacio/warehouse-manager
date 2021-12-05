@@ -21,7 +21,7 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end pr-3">
-      <a class="navbar-item" id = "logout">
+      <a class="navbar-item" id="logout">
         Log Out
       </a>
     </div>
@@ -36,9 +36,9 @@
     </h2>
     <form>
 
-      <div class="field has-addons pt-3">
+      <div class="field has-addons pt-3 is-grouped is-grouped-centered">
 
-        <div class="control">
+        <div>
           <input
             class="input pr-6 pl-6"
             type="text"
@@ -46,17 +46,46 @@
             id="search_id"
           />
         </div>
-        <div class="control">
+        <div>
           <a class="button is-primary" id="searchbtn">Search
           </a>
         </div>
       </div>
 
-      <div class="field">
-        <p class="is-size-5 has-text-weight-bold pt-5" id="vehicle-Info">Vehicle
-          information</p>
+      <div id="vehicle-Info">
+        {{! <div class="field">
+        <p
+          class="is-size-4 has-text-weight-bold pt-4 pb-2  is-underlined"
+          id="vehicleInfo"
+        >Vehicle information</p>
+        </p>
       </div>
 
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Vehicle</p>
+        <p class="is-size-5 pb-1" id="costprice">Toyota corolla</p>
+      </div>
+
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Registration</p>
+        <p class="is-size-5 pb-1" id="costprice">${vehicle.cost_price}</p>
+      </div>
+
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Cost price</p>
+        <p class="is-size-5 pb-1" id="costprice">${vehicle.location}</p>
+      </div>
+
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Sell price</p>
+        <p class="is-size-5 pb-1" id="costprice">${vehicle.location}</p>
+      </div>
+
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Location</p>
+        <p class="is-size-5 pb-3" id="costprice">${vehicle.location}</p>
+      </div>
+      
       <div class="field">
         <label class="label is-medium">Cost price</label>
         <div class="control">
@@ -85,12 +114,14 @@
 
       <div class="field">
         <label class="label is-medium">Select Location</label>
-        <div class='select'>
-          <select id='location'>
+        <div class="select">
+          <select id="location">
             <option>Showroom</option>
             <option>Warehouse</option>
           </select>
         </div>
+      </div> }}
+
       </div>
 
       <div class="field is-grouped is-grouped-centered pt-4">
