@@ -20,7 +20,7 @@ const receiveFormHandler = async event => {
     locationElement &&
     cost_price &&
     sell_price
-  ) {
+  ){
     const location = selectLocation(locationElement);
 
     const response = await fetch(`/api/vehicles/receive`, {
