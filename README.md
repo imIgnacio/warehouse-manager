@@ -58,13 +58,17 @@ Warning: New data is stored on Heroku for an indeterminate period of time. At le
 
 ## Assets
 
-- The following are the screenshots of the application:
+- The following are the screenshots of the application:![Login](assets/screenshots/login.png)
+  ![Homepage](assets/screenshots/homepage.png)
+  ![Inventory](assets/screenshots/inventory.png)
+  ![Receive](assets/screenshots/receive.png)
+  ![Sell](assets/screenshots/sell.png)
+  ![Update](assets/screenshots/update.png)
+- The following is a walkthrough video of the application's usage: https://watch.screencastify.com/v/K8ZJPGACytk3s3JGUF12
 
-- The following is a walkthrough video of the application's usage:
+- The following is the link to the delpoyed code on github: https://github.com/imIgnacio/warehouse-manager
 
-- The following is the link to the delpoyed code on github:
-
-- The following is the link to application deployed on Heroku:
+- The following is the link to application deployed on Heroku: https://warehouse-manager-bootcamp.herokuapp.com/
 
 ## Credits
 
