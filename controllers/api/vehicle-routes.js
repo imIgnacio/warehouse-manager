@@ -65,16 +65,21 @@ router.post("/receive", withAuth, async (req, res) => {
 });
 
 // Update a vehicle
-router.put("/update/:id", withAuth, async (req, res) => {
+router.put("/update/:rego_number", async (req, res) => {
   try {
-    const updatedVehicle = await Vehicle.update({
-      ...req.body,
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+    const updatedVehicle = await Vehicle.update(
+      {
+        sell_price: req.body.sell_price,
+        cost_price: req.body.cost_price,
+        location: req.body.location,
       },
-    });
-    if (!vehicleData) {
+      {
+        where: {
+          rego_number: req.params.rego_number,
+        },
+      }
+    );
+    if (!updatedVehicle) {
       res.status(404).json({ message: "No Vehicle found" });
       return;
     }
@@ -85,11 +90,11 @@ router.put("/update/:id", withAuth, async (req, res) => {
 });
 
 // Sell or Destroy a vehicle
-router.delete("/sell/:id", async (req, res) => {
+router.delete("/sell/:rego_number", async (req, res) => {
   try {
     const vehicleData = await Vehicle.destroy({
       where: {
-        id: req.params.id,
+        rego_number: req.params.rego_number,
       },
     });
 

@@ -31,7 +31,8 @@
 <div class="columns is-centered p-4 is-mobile">
   <div class="column is-11-mobile is-9-tablet is-6-desktop">
 
-    <h2 class="title is-3 has-text-centered has-text-weight-bold pt-5">Sell Item
+    <h2 class="title is-3 has-text-centered has-text-weight-bold pt-5">Update
+      Item
     </h2>
     <form>
 
@@ -52,36 +53,45 @@
       </div>
 
       <div class="field">
-        <p class="is-size-5 has-text-weight-bold pt-5" id="vehicleInfo">Vehicle
+        <p class="is-size-5 has-text-weight-bold pt-5" id="vehicle-Info">Vehicle
           information</p>
-        {{!-- <p
-          class="is-size-5 pb-4"
-          id="vehicle-make"
-        >${vehicle.make}
-        </p>
-        <p
-    class="is-size-5 pb-4"
-    id="vehicle-model"
-    >${vehicle.model}
-    </p>
-
       </div>
 
       <div class="field">
-        <p class="is-size-5 has-text-weight-bold">Cost price</p>
-        <p class="is-size-5 pb-4" id="costprice">{{vehicle.cost_price}}</p>
-      </div> 
-      
-      > --}}
-  <div class="field">
-        <label class="label is-medium">Selling price</label>
+        <label class="label is-medium">Location</label>
+        <div class="control">
+
+          <input
+            class="input"
+            type="text"
+            placeholder="e.g. Showroom "
+            id="location"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label is-medium">Cost price</label>
         <div class="control">
 
           <input
             class="input"
             type="text"
             placeholder="e.g. 12500 "
-            id="sellingprice"
+            id="cost-price"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label is-medium">Selling price</label>
+        <div class="control">
+
+          <input
+            class="input"
+            type="text"
+            placeholder="e.g. 14500 "
+            id="selling-price"
           />
         </div>
       </div>
@@ -90,8 +100,8 @@
         <div class="control">
           <button
             class="button is-rounded has-text-weight-bold is-primary"
-            id="sellform"
-          >Sell</button>
+            id="updateform"
+          >Update</button>
         </div>
       </div>
     </form>
@@ -99,4 +109,4 @@
   </div>
 
 </div>
-<script src="./js/sell.js"></script>
+<script src="./js/update.js"></script>

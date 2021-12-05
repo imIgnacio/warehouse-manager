@@ -1,26 +1,61 @@
-// const getVehicleInfo = async () => {
-//   const id = document.getElementById("search_id").value.trim();
-//   console.log(id);
-//   if (id) {
-//     const response = await fetch(`/sell/${id}`, {
-//       method: "GET",
-//       headers: { "Content-Type": "application/json" },
-//     });
-//     const data = await response.json();
-//     console.log(data);
-//   }
-// };
+const searchBar = document.getElementById("searchbtn");
+const vehicleInfo = document.getElementById("vehicleInfo");
+let vehicle = [];
+
+const getVehicleInfo = async () => {
+  const id = document.getElementById("search_id").value.trim();
+
+  if (id) {
+    const response = await fetch(`/api/vehicles/${id}`, {
+      method: "GET",
+
+      headers: { "Content-Type": "application/json" },
+    });
+    vehicle = await response.json();
+    console.log(vehicle);
+    displayVehicles(vehicle);
+  }
+};
+
+const displayVehicles = () => {
+  const htmlString = `
+   <p
+      class="is-size-5 pb-4"
+      id="vehicle-make"
+     >${vehicle.make}
+    </p>
+    <p
+    class="is-size-5 pb-4"
+    id="vehicle-model"
+  >${vehicle.model}
+  </p>
+
+  </div>
+
+
+  <div class="field">
+    <p class="is-size-5 has-text-weight-bold">Cost price</p>
+    <p class="is-size-5 pb-4" id="costprice">${vehicle.cost_price}</p>
+  </div>
+
+
+    `;
+
+  vehicleInfo.innerHTML += htmlString;
+};
 
 const sellFormHandler = async (event) => {
   event.preventDefault();
+  const sell_price = document.getElementById("sellingprice").value.trim();
   const rego_number = document.getElementById("search_id").value.trim();
-  const model = document.getElementById("#vehicle-model").value.trim();
-  const cost_price = document.getElementById("#costprice").value.trim();
-  const sell_price = document.getElementById("#sellingprice").value.trim();
-  if (rego_number && model && cost_price && sell_price) {
+  console.log(sell_price, rego_number);
+  if (rego_number && sell_price) {
     const response = await fetch(`/api/vehicles/sell/${rego_number}`, {
       method: "DELETE",
-      body: JSON.stringify({ rego_number, model, cost_price, sell_price }),
+      body: JSON.stringify({
+        rego_number,
+        sell_price,
+      }),
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
@@ -34,6 +69,20 @@ const sellFormHandler = async (event) => {
 const backArrow = () => {
   console.log("arrow function");
   document.location.replace("/homepage");
+};
+const logoutElement = document.getElementById("logout");
+
+const finishSession = async () => {
+  const response = await fetch("/api/user/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert(response.statusText);
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -62,4 +111,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("arrow").addEventListener("click", backArrow);
 document.getElementById("sellform").addEventListener("click", sellFormHandler);
-// document.getElementById("search-btn").addEventListener("click", getVehicleInfo);
+logoutElement.addEventListener("click", finishSession);
+searchBar.addEventListener("click", getVehicleInfo);

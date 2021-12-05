@@ -69,26 +69,10 @@ router.get("/sell", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.get("/sell/:rego_number", async (req, res) => {
+router.get("/update", async (req, res) => {
   try {
-    const vehicleData = await Vehicle.findOne({
-      where: {
-        rego_number: req.params.rego_number,
-      },
-      include: [
-        {
-          attributes: ["model", "make", "cost_price", "rego_number"],
-        },
-      ],
-      exclude: ["kms", "location", "color", "year"],
-    });
-    console.log(vehicleData);
-    const vehicle = vehicleData.get({ plain: true });
-
-    res.render("sell", {
-      ...vehicle,
-      logged_in: req.session.logged_in,
+    res.render("update", {
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
