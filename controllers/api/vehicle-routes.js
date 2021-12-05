@@ -5,7 +5,6 @@ const withAuth = require("../../utils/auth");
 // GET all vehicles .../api/vehicles
 router.get("/", withAuth, async (req, res) => {
   try {
-    console.log("hahahah");
     const vehicleData = await Vehicle.findAll();
 
     if (!vehicleData) {
@@ -85,11 +84,11 @@ router.put("/update/:id", withAuth, async (req, res) => {
 });
 
 // Sell or Destroy a vehicle
-router.delete("/sell/:id", async (req, res) => {
+router.delete("/sell/:rego_number", async (req, res) => {
   try {
     const vehicleData = await Vehicle.destroy({
       where: {
-        id: req.params.id,
+        rego_number: req.params.rego_number,
       },
     });
 

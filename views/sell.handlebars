@@ -46,40 +46,37 @@
           />
         </div>
         <div class="control">
-          <a
-            class="button is-primary"
-            href="/sell/{{vehicle.rego_number}}"
-          >Search
+          <a class="button is-primary" id="search-btn">Search
           </a>
         </div>
       </div>
 
       <div class="field">
-        <p class="is-size-5 has-text-weight-bold pt-5">Vehicle information</p>
-        <p
+        <p class="is-size-5 has-text-weight-bold pt-5" id="vehicleInfo">Vehicle
+          information</p>
+        {{!-- <p
           class="is-size-5 pb-4"
-          id="vehicle-model"
-        >{{vehicle.make}}{{vehicle.model}}
+          id="vehicle-make"
+        >${vehicle.make}
         </p>
+        <p
+    class="is-size-5 pb-4"
+    id="vehicle-model"
+    >${vehicle.model}
+    </p>
 
       </div>
 
       <div class="field">
         <p class="is-size-5 has-text-weight-bold">Cost price</p>
         <p class="is-size-5 pb-4" id="costprice">{{vehicle.cost_price}}</p>
-      </div>
+      </div> 
+      
+         <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Selling price</p>
+        <p class="is-size-5 pb-4" id="costprice">{{vehicle.sell_price}}</p>
+      </div> --}}
 
-      <div class="field">
-        <label class="label is-medium">Selling price</label>
-        <div class="control">
-
-          <input
-            class="input"
-            type="text"
-            placeholder="e.g. 12500 "
-            id="sellingprice"
-          />
-        </div>
       </div>
 
       <div class="field is-grouped is-grouped-centered pt-4">
@@ -93,5 +90,6 @@
     </form>
 
   </div>
+
 </div>
 <script src="./js/sell.js"></script>
