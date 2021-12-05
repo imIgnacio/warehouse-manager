@@ -70,26 +70,13 @@ router.get("/sell", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// router.get("/sell/:id", async (req, res) => {
-//   try {
-//     const vehicleData = await Vehicle.findByPk(req.params.id, {
-//       include: [
-//         {
-//           attributes: ["model", "make", "cost_price", "sell_price"],
-//         },
-//       ],
-//       exclude: ["kms", "location", "color", "year"],
-//     });
-//     console.log(vehicleData);
-//     const vehicle = vehicleData.get({ plain: true });
-
-//     res.render("sell/:id", {
-//       ...vehicle,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+router.get("/update", async (req, res) => {
+  try {
+    res.render("update", {
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;

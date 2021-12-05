@@ -21,7 +21,7 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end pr-3">
-      <a class="navbar-item" id='logout'>Log Out</a>
+      <a class="navbar-item" id="logout">Log Out</a>
     </div>
   </div>
 </nav>
@@ -61,7 +61,9 @@
             <th><abbr title="Year">Year</abbr></th>
             <th><abbr title="Kilometres">KM</abbr></th>
             <th><abbr title="Location">Location</abbr></th>
-            <th><abbr title="Update">UPD</abbr></th>
+            <th><abbr title="Cost-Price">Cost-Price</abbr></th>
+            <th><abbr title="Sell-Price">Sell-Price</abbr></th>
+
           </tr>
         </thead>
         <tfoot>
@@ -73,7 +75,9 @@
             <th><abbr title="Year">Year</abbr></th>
             <th><abbr title="Kilometres">KM</abbr></th>
             <th><abbr title="Location">Location</abbr></th>
-            <th><abbr title="Update">UPD</abbr></th>
+            <th><abbr title="Cost-Price">Cost-Price</abbr></th>
+            <th><abbr title="Sell-Price">Sell-Price</abbr></th>
+
           </tr>
         </tfoot>
         <tbody>
@@ -86,12 +90,9 @@
               <td>{{vehicle.year}}</td>
               <td>{{vehicle.kms}}</td>
               <td>{{vehicle.warehouse.name}}</td>
-              <td><span class="icon-text">
-                  <span class="icon">
-                    <i class="fas fa-pen"></i>
-                  </span>
-                </span>
-              </td>
+              <td>{{vehicle.cost_price}}</td>
+              <td>{{vehicle.sell_price}}</td>
+
             </tr>
           {{/each}}
         </tbody>

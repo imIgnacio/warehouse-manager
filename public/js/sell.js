@@ -1,6 +1,4 @@
-//const { response } = require("express");
-
-const searchBar = document.getElementById("search-btn");
+const searchBar = document.getElementById("searchbtn");
 const vehicleInfo = document.getElementById("vehicleInfo");
 let vehicle = [];
 
@@ -18,7 +16,6 @@ const getVehicleInfo = async () => {
     displayVehicles(vehicle);
   }
 };
-searchBar.addEventListener("click", getVehicleInfo);
 
 const displayVehicles = () => {
   const htmlString = `
@@ -41,10 +38,7 @@ const displayVehicles = () => {
     <p class="is-size-5 pb-4" id="costprice">${vehicle.cost_price}</p>
   </div>
 
-  <div class="field">
-  <p class="is-size-5 has-text-weight-bold">Selling price</p>
-  <p class="is-size-5 pb-4" id="costprice">${vehicle.sell_price}</p>
-</div> 
+
     `;
 
   vehicleInfo.innerHTML += htmlString;
@@ -52,12 +46,15 @@ const displayVehicles = () => {
 
 const sellFormHandler = async (event) => {
   event.preventDefault();
+  const sell_price = document.getElementById("sellingprice").value.trim();
   const rego_number = document.getElementById("search_id").value.trim();
-  if (rego_number) {
+  console.log(sell_price, rego_number);
+  if (rego_number && sell_price) {
     const response = await fetch(`/api/vehicles/sell/${rego_number}`, {
       method: "DELETE",
       body: JSON.stringify({
         rego_number,
+        sell_price,
       }),
       headers: { "Content-Type": "application/json" },
     });
@@ -72,6 +69,20 @@ const sellFormHandler = async (event) => {
 const backArrow = () => {
   console.log("arrow function");
   document.location.replace("/homepage");
+};
+const logoutElement = document.getElementById("logout");
+
+const finishSession = async () => {
+  const response = await fetch("/api/user/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert(response.statusText);
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -100,3 +111,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("arrow").addEventListener("click", backArrow);
 document.getElementById("sellform").addEventListener("click", sellFormHandler);
+logoutElement.addEventListener("click", finishSession);
+searchBar.addEventListener("click", getVehicleInfo);
