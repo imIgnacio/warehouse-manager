@@ -21,7 +21,7 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end pr-3">
-      <a class="navbar-item" id = "logout">
+      <a class="navbar-item" id="logout">
         Log Out
       </a>
     </div>
@@ -35,9 +35,9 @@
     </h2>
     <form>
 
-      <div class="field has-addons pt-3">
+      <div class="field has-addons pt-3 is-grouped is-grouped-centered">
 
-        <div class="control">
+        <div>
           <input
             class="input pr-6 pl-6"
             type="text"
@@ -45,35 +45,34 @@
             id="search_id"
           />
         </div>
-        <div class="control">
+        <div>
           <a class="button is-primary" id="searchbtn">Search
           </a>
         </div>
       </div>
-
-      <div class="field">
-        <p class="is-size-5 has-text-weight-bold pt-5" id="vehicleInfo">Vehicle
-          information</p>
-        {{!-- <p
-          class="is-size-5 pb-4"
-          id="vehicle-make"
-        >${vehicle.make}
-        </p>
+      <div id="vehicleInfo">
+        {{! <div class="field">
         <p
-    class="is-size-5 pb-4"
-    id="vehicle-model"
-    >${vehicle.model}
-    </p>
+          class="is-size-4 has-text-weight-bold pt-4 pb-5 is-underlined"
+          id="vehicleInfo"
+        >Vehicle information</p>
+        <p class="is-size-5 has-text-weight-bold">Vehicle</p>
+        <p class="is-size-5 pb-4" id="vehicle-make">${vehicle.make} ${vehicle.model}
+        </p>
 
       </div>
 
       <div class="field">
         <p class="is-size-5 has-text-weight-bold">Cost price</p>
-        <p class="is-size-5 pb-4" id="costprice">{{vehicle.cost_price}}</p>
-      </div> 
-      
-      > --}}
-  <div class="field">
+        <p class="is-size-5 pb-4" id="costprice">${vehicle.cost_price}</p>
+      </div>
+
+      <div class="field">
+        <p class="is-size-5 has-text-weight-bold">Location</p>
+        <p class="is-size-5 pb-4" id="costprice">${vehicle.location}</p>
+      </div>
+
+      <div class="field">
         <label class="label is-medium">Selling price</label>
         <div class="control">
 
@@ -84,6 +83,8 @@
             id="sellingprice"
           />
         </div>
+      </div> }}
+
       </div>
 
       <div class="field is-grouped is-grouped-centered pt-4">
@@ -94,6 +95,7 @@
           >Sell</button>
         </div>
       </div>
+
     </form>
 
   </div>
