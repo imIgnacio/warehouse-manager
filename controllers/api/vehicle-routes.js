@@ -5,7 +5,6 @@ const withAuth = require("../../utils/auth");
 // GET all vehicles .../api/vehicles
 router.get("/", withAuth, async (req, res) => {
   try {
-    console.log("hahahah");
     const vehicleData = await Vehicle.findAll();
 
     if (!vehicleData) {
@@ -28,6 +27,7 @@ router.get("/:rego_number", async (req, res) => {
         rego_number: req.params.rego_number,
       },
       attributes: [
+        "id",
         "model",
         "make",
         "kms",

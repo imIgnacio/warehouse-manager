@@ -40,13 +40,11 @@
           class="input pr-6 pl-6"
           type="text"
           placeholder="Find car by registration"
-          id="v_id"
+          id="search-rego"
         />
       </div>
       <div class="control">
-        <a class="button is-primary" id="inventory-form">
-          Search
-        </a>
+        <button class="button is-primary" id="search-button">Search</button>
       </div>
     </div>
 
@@ -76,11 +74,11 @@
             <th><abbr title="Update">UPD</abbr></th>
           </tr>
         </tfoot>
-        <tbody>
+        <tbody id='tBody'>
           {{#each vehicles as |vehicle|}}
-            <tr>
+            <tr id='tableID'>
               <th>{{vehicle.id}}</th>
-              <td>{{vehicle.make}}</td>
+              <td>{{vehicle.make}} {{vehicle.model}}</td>
               <td>{{vehicle.rego_number}}</td>
               <td>{{vehicle.color}}</td>
               <td>{{vehicle.year}}</td>

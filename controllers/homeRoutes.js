@@ -40,7 +40,6 @@ router.get("/inventory", withAuth, async (req, res) => {
     // Serialize data
     const vehicles = vehicleData.map((vehicle) => vehicle.get({ plain: true }));
 
-    console.log(vehicles);
     res.render("inventory", {
       vehicles,
       logged_in: true,
