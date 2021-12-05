@@ -35,41 +35,30 @@ const displayVehicles = () => {
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Vehicle</p>
-  <p class="is-size-5 pb-1" id="costprice">${vehicle.make} ${vehicle.model}</p>
-</div>
+  <p class="is-size-5 pb-1" id="costprice">- ${vehicle.make} ${vehicle.model}</p>
+</div> 
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Registration</p>
-  <p class="is-size-5 pb-1" id="costprice">${vehicle.rego_number}</p>
+  <p class="is-size-5 pb-1" id="costprice">- ${vehicle.rego_number}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Cost price</p>
-  <p class="is-size-5 pb-1" id="costprice">${vehicle.cost_price}</p>
+  <p class="is-size-5 pb-1" id="costprice">- $${vehicle.cost_price}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Sell price</p>
-  <p class="is-size-5 pb-1" id="costprice">${vehicle.sell_price}</p>
+  <p class="is-size-5 pb-1" id="costprice">- $${vehicle.sell_price}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Location</p>
-  <p class="is-size-5 pb-3" id="costprice">${vehicleLocation}</p>
+  <p class="is-size-5 pb-3" id="costprice">- ${vehicleLocation}</p>
 </div>
 
-<div class="field">
-  <label class="label is-medium">Cost price</label>
-  <div class="control">
 
-    <input
-      class="input"
-      type="text"
-      placeholder="e.g. 12500 "
-      id="cost-price"
-    />
-  </div>
-</div>
 
 <div class="field">
   <label class="label is-medium">Selling price</label>

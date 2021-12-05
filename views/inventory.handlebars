@@ -59,8 +59,8 @@
             <th><abbr title="Year">Year</abbr></th>
             <th><abbr title="Kilometres">KM</abbr></th>
             <th><abbr title="Location">Location</abbr></th>
-            <th><abbr title="Cost-Price">$ Cost</abbr></th>
-            <th><abbr title="Sell-Price">$ Sell</abbr></th>
+            <th><abbr title="Cost-Price">Cost</abbr></th>
+            <th><abbr title="Sell-Price">Sell</abbr></th>
 
           </tr>
         </thead>
@@ -73,8 +73,8 @@
             <th><abbr title="Year">Year</abbr></th>
             <th><abbr title="Kilometres">KM</abbr></th>
             <th><abbr title="Location">Location</abbr></th>
-            <th><abbr title="Cost-Price">$ Cost</abbr></th>
-            <th><abbr title="Sell-Price">$ Sell</abbr></th>
+            <th><abbr title="Cost-Price">Cost</abbr></th>
+            <th><abbr title="Sell-Price">Sell</abbr></th>
 
           </tr>
         </tfoot>
@@ -88,8 +88,8 @@
               <td>{{vehicle.year}}</td>
               <td>{{vehicle.kms}}</td>
               <td>{{vehicle.warehouse.name}}</td>
-              <td>{{vehicle.cost_price}}</td>
-              <td>{{vehicle.sell_price}}</td>
+              <td>${{vehicle.cost_price}}</td>
+              <td>${{vehicle.sell_price}}</td>
 
             </tr>
           {{/each}}
