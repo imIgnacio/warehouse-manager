@@ -18,33 +18,58 @@ const getVehicleInfo = async () => {
 };
 
 const displayVehicles = () => {
+  if (vehicle.location == 1) {
+    vehicleLocation = "Showroom";
+  } else {
+    vehicleLocation = "Warehouse";
+  }
+
   const htmlString = `
-   <p
-      class="is-size-5 pb-4"
-      id="vehicle-make"
-     >${vehicle.make}
-    </p>
-    <p
-    class="is-size-5 pb-4"
-    id="vehicle-model"
-  >${vehicle.model}
+  <div class="field">
+  <p
+    class="is-size-4 has-text-weight-bold pt-4 pb-5 is-underlined"
+    id="vehicleInfo"
+  >Vehicle information</p>
+  <p class="is-size-5 has-text-weight-bold">Vehicle</p>
+  <p class="is-size-5 pb-4" id="vehicle-make">${vehicle.make} ${vehicle.model}
   </p>
 
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Registration</p>
+  <p class="is-size-5 pb-4" id="costprice">${vehicle.rego_number}</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Cost price</p>
+  <p class="is-size-5 pb-4" id="costprice">$ ${vehicle.cost_price}</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Location</p>
+  <p class="is-size-5 pb-4" id="costprice">${vehicleLocation}</p>
+</div>
+
+<div class="field pb-4">
+  <label class="label is-medium">Selling price</label>
+  <div class="control">
+
+    <input
+      class="input"
+      type="text"
+      placeholder="e.g. 12500 "
+      id="sellingprice"
+    />
   </div>
-
-
-  <div class="field">
-    <p class="is-size-5 has-text-weight-bold">Cost price</p>
-    <p class="is-size-5 pb-4" id="costprice">${vehicle.cost_price}</p>
-  </div>
-
+</div>
 
     `;
 
-  vehicleInfo.innerHTML += htmlString;
+  vehicleInfo.innerHTML = htmlString;
 };
 
-const sellFormHandler = async (event) => {
+const sellFormHandler = async event => {
   event.preventDefault();
   const sell_price = document.getElementById("sellingprice").value.trim();
   const rego_number = document.getElementById("search_id").value.trim();
@@ -95,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach((el) => {
+    $navbarBurgers.forEach(el => {
       el.addEventListener("click", () => {
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;
