@@ -38,7 +38,7 @@ router.get("/inventory", withAuth, async (req, res) => {
     });
 
     // Serialize data
-    const vehicles = vehicleData.map((vehicle) => vehicle.get({ plain: true }));
+    const vehicles = vehicleData.map(vehicle => vehicle.get({ plain: true }));
 
     res.render("inventory", {
       vehicles,
@@ -60,7 +60,7 @@ router.get("/receive", withAuth, async (req, res) => {
   }
 });
 
-router.get("/sell", async (req, res) => {
+router.get("/sell", withAuth, async (req, res) => {
   try {
     res.render("sell", {
       logged_in: true,
@@ -69,7 +69,7 @@ router.get("/sell", async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get("/update", async (req, res) => {
+router.get("/update", withAuth, async (req, res) => {
   try {
     res.render("update", {
       logged_in: true,

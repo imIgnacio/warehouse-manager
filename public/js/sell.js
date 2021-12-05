@@ -35,22 +35,27 @@ const displayVehicles = () => {
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Vehicle</p>
-  <p class="is-size-5 pb-1" id="costprice">${vehicle.make} ${vehicle.model}</p>
+  <p class="is-size-5 pb-1" id="costprice">- ${vehicle.make} ${vehicle.model}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Registration</p>
-  <p class="is-size-5 pb-1" id="costprice">${vehicle.rego_number}</p>
+  <p class="is-size-5 pb-1" id="costprice">- ${vehicle.rego_number}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Cost price</p>
-  <p class="is-size-5 pb-1" id="costprice">$ ${vehicle.cost_price}</p>
+  <p class="is-size-5 pb-1" id="costprice">- $${vehicle.cost_price}</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Sell price</p>
+  <p class="is-size-5 pb-1" id="costprice">- $${vehicle.sell_price}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Location</p>
-  <p class="is-size-5 pb-1" id="costprice">${vehicleLocation}</p>
+  <p class="is-size-5 pb-1" id="costprice">- ${vehicleLocation}</p>
 </div>
 
 <div class="field ">
