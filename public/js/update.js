@@ -18,43 +18,87 @@ const getVehicleInfo = async () => {
 };
 
 const displayVehicles = () => {
+  if (vehicle.location == 1) {
+    vehicleLocation = "Showroom";
+  } else {
+    vehicleLocation = "Warehouse";
+  }
+
   const htmlString = `
-   <p
-      class="is-size-5 pb-4"
-      id="vehicle-make"
-     >Make: ${vehicle.make}
-    </p>
-    <p
-    class="is-size-5 pb-4"
-    id="vehicle-model"
-  >Model: ${vehicle.model}
+  <div class="field">
+  <p
+    class="is-size-4 has-text-weight-bold pt-4 pb-2  is-underlined"
+    id="vehicleInfo"
+  >Vehicle information</p>
   </p>
-  <p
-  class="is-size-5 pb-4"
-  id="vehicle-model"
->Color: ${vehicle.color}
-</p>
-  <p
-  class="is-size-5 pb-4"
-  id="vehicle-model"
->Kms: ${vehicle.kms}
-</p>
-<p
-class="is-size-5 pb-4"
-id="vehicle-model"
->Year: ${vehicle.year}
-</p>
-<p
-class="is-size-5 pb-4"
-id="vehicle-model"
->Rego: ${vehicle.rego_number}
-</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Vehicle</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.make} ${vehicle.model}</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Registration</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.rego_number}</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Cost price</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.cost_price}</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Sell price</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.sell_price}</p>
+</div>
+
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Location</p>
+  <p class="is-size-5 pb-3" id="costprice">${vehicleLocation}</p>
+</div>
+
+<div class="field">
+  <label class="label is-medium">Cost price</label>
+  <div class="control">
+
+    <input
+      class="input"
+      type="text"
+      placeholder="e.g. 12500 "
+      id="cost-price"
+    />
+  </div>
+</div>
+
+<div class="field">
+  <label class="label is-medium">Selling price</label>
+  <div class="control">
+
+    <input
+      class="input"
+      type="text"
+      placeholder="e.g. 14500 "
+      id="selling-price"
+    />
+  </div>
+</div>
+
+<div class="field">
+  <label class="label is-medium">Select Location</label>
+  <div class="select">
+    <select id="location">
+      <option>Showroom</option>
+      <option>Warehouse</option>
+    </select>
+  </div>
+</div>
     `;
 
-  vehicleInfo.innerHTML += htmlString;
+  vehicleInfo.innerHTML = htmlString;
 };
 
-const updateFormHandler = async (event) => {
+const updateFormHandler = async event => {
   event.preventDefault();
   const cost_price = document.getElementById("cost-price").value.trim();
   const sell_price = document.getElementById("selling-price").value.trim();
@@ -62,9 +106,9 @@ const updateFormHandler = async (event) => {
   const rego_number = document.getElementById("search_id").value.trim();
 
   //Change location name for id
-  if(location === "Showroom"){
+  if (location === "Showroom") {
     location = 1;
-  }else {
+  } else {
     location = 2;
   }
 
@@ -120,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach((el) => {
+    $navbarBurgers.forEach(el => {
       el.addEventListener("click", () => {
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;

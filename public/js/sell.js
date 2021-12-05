@@ -27,31 +27,33 @@ const displayVehicles = () => {
   const htmlString = `
   <div class="field">
   <p
-    class="is-size-4 has-text-weight-bold pt-4 pb-5 is-underlined"
+    class="is-size-4 has-text-weight-bold pt-4 pb-2  is-underlined"
     id="vehicleInfo"
   >Vehicle information</p>
-  <p class="is-size-5 has-text-weight-bold">Vehicle</p>
-  <p class="is-size-5 pb-4" id="vehicle-make">${vehicle.make} ${vehicle.model}
   </p>
+</div>
 
+<div class="field">
+  <p class="is-size-5 has-text-weight-bold">Vehicle</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.make} ${vehicle.model}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Registration</p>
-  <p class="is-size-5 pb-4" id="costprice">${vehicle.rego_number}</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.rego_number}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Cost price</p>
-  <p class="is-size-5 pb-4" id="costprice">$ ${vehicle.cost_price}</p>
+  <p class="is-size-5 pb-1" id="costprice">$ ${vehicle.cost_price}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Location</p>
-  <p class="is-size-5 pb-4" id="costprice">${vehicleLocation}</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicleLocation}</p>
 </div>
 
-<div class="field pb-4">
+<div class="field ">
   <label class="label is-medium">Selling price</label>
   <div class="control">
 
