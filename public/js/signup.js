@@ -1,3 +1,5 @@
+const errorMessage = document.getElementById("error-message");
+
 const signupFormHandler = async event => {
   event.preventDefault();
   const name = document.getElementById("fullname").value.trim();
@@ -14,7 +16,7 @@ const signupFormHandler = async event => {
     if (response.ok) {
       document.location.replace("/homepage");
     } else {
-      alert(response.statusText);
+      errorMessage.innerHTML = "Enter a valid name, email and password";
     }
   }
 };

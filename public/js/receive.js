@@ -1,3 +1,5 @@
+const errorMessage = document.getElementById("error-message");
+
 const receiveFormHandler = async event => {
   event.preventDefault();
   const make = document.getElementById("make").value.trim();
@@ -11,6 +13,20 @@ const receiveFormHandler = async event => {
   const sell_price = document.getElementById("sellprice").value.trim();
 
   if (
+    make ||
+    model ||
+    kms ||
+    color ||
+    year ||
+    rego_number ||
+    locationElement ||
+    cost_price ||
+    sell_price === null
+  ) {
+    errorMessage.innerHTML = "All fields are required";
+  }
+
+  if (
     make &&
     model &&
     kms &&
@@ -20,7 +36,7 @@ const receiveFormHandler = async event => {
     locationElement &&
     cost_price &&
     sell_price
-  ){
+  ) {
     const location = selectLocation(locationElement);
 
     const response = await fetch(`/api/vehicles/receive`, {
@@ -42,7 +58,7 @@ const receiveFormHandler = async event => {
     if (response.ok) {
       document.location.replace("/homepage");
     } else {
-      alert(response.statusText);
+      errorMessage.innerHTML = "Please check all your data is correct";
     }
   }
 };
@@ -101,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
 
 //Listeners
 document.getElementById("arrow").addEventListener("click", backArrow);
