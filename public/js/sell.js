@@ -1,3 +1,4 @@
+const errorMessage = document.getElementById("error-message");
 const searchBar = document.getElementById("searchbtn");
 const vehicleInfo = document.getElementById("vehicleInfo");
 let vehicle = [];
@@ -11,9 +12,14 @@ const getVehicleInfo = async () => {
 
       headers: { "Content-Type": "application/json" },
     });
-    vehicle = await response.json();
-    console.log(vehicle);
-    displayVehicles(vehicle);
+
+    if (response.status == 404) {
+      errorMessage.innerHTML = "No vehicle founded with this Rego";
+    } else {
+      errorMessage.innerHTML = "";
+      vehicle = await response.json();
+      displayVehicles(vehicle);
+    }
   }
 };
 
@@ -35,27 +41,27 @@ const displayVehicles = () => {
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Vehicle</p>
-  <p class="is-size-5 pb-1" id="costprice">- ${vehicle.make} ${vehicle.model}</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.make} ${vehicle.model}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Registration</p>
-  <p class="is-size-5 pb-1" id="costprice">- ${vehicle.rego_number}</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicle.rego_number}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Cost price</p>
-  <p class="is-size-5 pb-1" id="costprice">- $${vehicle.cost_price}</p>
+  <p class="is-size-5 pb-1" id="costprice">$${vehicle.cost_price}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Sell price</p>
-  <p class="is-size-5 pb-1" id="costprice">- $${vehicle.sell_price}</p>
+  <p class="is-size-5 pb-1" id="costprice">$${vehicle.sell_price}</p>
 </div>
 
 <div class="field">
   <p class="is-size-5 has-text-weight-bold">Location</p>
-  <p class="is-size-5 pb-1" id="costprice">- ${vehicleLocation}</p>
+  <p class="is-size-5 pb-1" id="costprice">${vehicleLocation}</p>
 </div>
 
 <div class="field ">
