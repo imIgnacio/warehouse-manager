@@ -75,5 +75,82 @@
         "sell_price": "28000",
         "location": "2",
         "rego_number": "THC578"
+    },
+    {
+        "make": "Lexus",
+        "model": "LX-400",
+        "kms": "45800",
+        "color": "Gray",
+        "year": "2018",
+        "cost_price": "25700",
+        "sell_price": "26750",
+        "location": "1",
+        "rego_number": "LOT670"
+    },
+    {
+        "make": "Mercedes Benz",
+        "model": "GT",
+        "kms": "8000",
+        "color": "Yellow",
+        "year": "2010",
+        "cost_price": "90000",
+        "sell_price": "12000",
+        "location": "1",
+        "rego_number": "M4STER"
+    },
+    {
+        "make": "Jeep",
+        "model": "Compass",
+        "kms": "145000",
+        "color": "Dark Gray",
+        "year": "2017",
+        "cost_price": "34000",
+        "sell_price": "39000",
+        "location": "1",
+        "rego_number": "ALST8N"
+    },
+    {
+        "make": "Toyota",
+        "model": "Yaris",
+        "kms": "34000",
+        "color": "White",
+        "year": "2022",
+        "cost_price": "15000",
+        "sell_price": "18000",
+        "location": "2",
+        "rego_number": "TRW456"
+    },
+    {
+        "make": "KIA",
+        "model": "Carnival",
+        "kms": "23900",
+        "color": "White",
+        "year": "2020",
+        "cost_price": "42800",
+        "sell_price": "47900",
+        "location": "2",
+        "rego_number": "KIA123"
+    },
+    {
+        "make": "Hyundai",
+        "model": "I30",
+        "kms": "12000",
+        "color": "Light Blue",
+        "year": "2022",
+        "cost_price": "18000",
+        "sell_price": "23000",
+        "location": "2",
+        "rego_number": "HYV543"
+    },
+    {
+        "make": "DS",
+        "model": "DS3",
+        "kms": "9800",
+        "color": "Silver",
+        "year": "2018",
+        "cost_price": "18000",
+        "sell_price": "21000",
+        "location": "1",
+        "rego_number": "KFY765"
     }
 ]
