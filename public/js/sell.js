@@ -14,7 +14,7 @@ const getVehicleInfo = async () => {
     });
 
     if (response.status == 404) {
-      errorMessage.innerHTML = "No vehicle founded with this Rego";
+      errorMessage.innerHTML = "No vehicle found with this Rego";
     } else {
       errorMessage.innerHTML = "";
       vehicle = await response.json();
