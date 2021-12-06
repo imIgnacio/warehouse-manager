@@ -13,15 +13,15 @@ const receiveFormHandler = async event => {
   const sell_price = document.getElementById("sellprice").value.trim();
 
   if (
-    make ||
-    model ||
-    kms ||
-    color ||
-    year ||
-    rego_number ||
-    locationElement ||
-    cost_price ||
-    sell_price === null
+    !make ||
+    !model ||
+    !kms ||
+    !color ||
+    !year ||
+    !rego_number ||
+    !locationElement ||
+    !cost_price ||
+    !sell_price
   ) {
     errorMessage.innerHTML = "All fields are required";
   }
