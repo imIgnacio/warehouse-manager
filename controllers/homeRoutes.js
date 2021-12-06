@@ -22,7 +22,11 @@ router.get("/homepage", withAuth, (req, res) => {
 
 // Render sign up page
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  try {
+    res.render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Render inventory endpoint
@@ -38,7 +42,7 @@ router.get("/inventory", withAuth, async (req, res) => {
     });
 
     // Serialize data
-    const vehicles = vehicleData.map(vehicle => vehicle.get({ plain: true }));
+    const vehicles = vehicleData.map((vehicle) => vehicle.get({ plain: true }));
 
     res.render("inventory", {
       vehicles,
