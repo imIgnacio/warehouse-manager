@@ -15,7 +15,7 @@ const getVehicleInfo = async () => {
     });
 
     if (response.status == 404) {
-      errorMessage.innerHTML = "No vehicle founded with this Rego";
+      errorMessage.innerHTML = "No vehicle found with this Rego";
     } else {
       errorMessage.innerHTML = "";
       vehicle = await response.json();
@@ -94,7 +94,7 @@ const displayVehicles = () => {
   vehicleInfo.innerHTML = htmlString;
 };
 
-const updateFormHandler = async event => {
+const updateFormHandler = async (event) => {
   event.preventDefault();
 
   const sell_price = document.getElementById("selling-price").value.trim();
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach(el => {
+    $navbarBurgers.forEach((el) => {
       el.addEventListener("click", () => {
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;
