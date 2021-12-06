@@ -14,9 +14,8 @@ const seedDatabase = async () => {
       returning: true,
     });
 
-    const Warehouses = await Warehouse.bulkCreate(warehouseData);
+    const warehouses = await Warehouse.bulkCreate(warehouseData);
     const vehicles = await Vehicle.bulkCreate(vehicleData);
-
   } catch (err) {
     console.log(err);
   }
